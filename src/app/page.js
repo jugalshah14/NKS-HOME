@@ -453,6 +453,7 @@ export default function Home() {
                 <div className="grid grid-cols-4 lg:grid-cols-3 gap-4 ">
                   <div className="col-span-2 p-2">
                     <SlideUp delay={0.4}>
+                      <div className="text-[20px] font-[700] leading-[28px] text-white mb-4">Did you know?</div>
                       <p className="w-[80%] transforming-text font-[300] text-[56px] leading-[72px] lg:text-[40px] lg:leading-[48px]">
                         {`The Ganges River Dolphin (Platanista gangetica), also know locally as  "Susu", is one of only four freshwater dolphin species in the world and is often regarded as the ‘Tiger of the Ganges'.`}
                       </p>
