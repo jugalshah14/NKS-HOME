@@ -18,6 +18,7 @@ import Link from "next/link";
 import { Element } from "react-scroll";
 import SafetySecuritySection from "@/components/SafetySecuritySection";
 import CertificationSection from "@/components/CertificationSection";
+import PastProjectSwiper from "@/components/PastProjectSwiper";
 
 const seramporeData = [
   {
@@ -58,7 +59,6 @@ const seramporeData = [
 ];
 
 export default function Home() {
-
   return (
     <main>
       {/* Hero Section */}
@@ -99,8 +99,12 @@ export default function Home() {
       </section>
 
       <div class="container mx-auto">
-        <div class="flex items-center justify-center">
-          <div class="bg-white rounded-lg p-8 w-full max-w-2xl mx-4 relative">
+        <div class="flex justify-between">
+          <div class="text-[56px] font-normal leading-[72px] text-black font-cormorant">
+            <span class="text-[#DE804B]">Fill the form</span> to <br /> book a
+            visit to the <br /> site
+          </div>
+          <div class="bg-white p-8 w-full max-w-2xl mx-4 relative box-shadow">
             <h2 class="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
 
             <form class="space-y-4">
@@ -170,10 +174,13 @@ export default function Home() {
 
               <button
                 type="submit"
-                class="cursor-pointer w-full bg-[#144D78] text-white py-3 md:py-4 px-6 md:px-9 rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center"
+                class="cursor-pointer w-full bg-[#144D78] text-white rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center"
               >
-                <span class="text-left flex-grow text-[18px] md:text-[20px] font-[600]">
+                <span class="text-left py-3 md:py-4 px-6 md:px-9 flex-grow text-[18px] md:text-[20px] font-[600]">
                   Book A Site Visit
+                </span>
+                <span className="px-6 py-4 flex items-center justify-center rounded-r-md h-full text-orange-500 bg-[#002F52] text-lg">
+                  ↗
                 </span>
               </button>
             </form>
@@ -246,7 +253,7 @@ export default function Home() {
           >
             <div className="flex justify-center items-center h-[68px] w-[68px] mb-4">
               <Image
-                src="/assets/icons/area_of_project.svg"
+                src="/assets/icons/19 acres.svg"
                 width={68}
                 height={68}
                 alt="Project Area"
@@ -270,7 +277,7 @@ export default function Home() {
           >
             <div className="flex justify-center items-center h-[68px] w-[68px] mb-4">
               <Image
-                src="/assets/icons/cctv.svg"
+                src="/assets/icons/Family.svg"
                 width={68}
                 height={68}
                 alt="Garden and Ghat"
@@ -278,13 +285,13 @@ export default function Home() {
               />
             </div>
             <h3 className="hidden md:block text-[40px] font-satoshi font-[400] leading-[54px] text-[#22252e] mb-1">
-              24/7
+              3500+
             </h3>
             <p className="hidden md:block text-[20px] font-satoshi font-[400] leading-[28px] text-[#22252e] text-center">
-              Security
+              Families Booked
             </p>
             <p className="block md:hidden text-[18px] font-satoshi font-[400] leading-6 text-[#22252e] text-center">
-              Security
+              Families Booked
             </p>
           </SlideUp>
         </div>
@@ -334,7 +341,7 @@ export default function Home() {
                     fill
                     src="/assets/bitmap.png"
                     alt="Aerial view of Riverside Residences"
-                    className="md:rounded-lg object-cover"
+                    className=" object-cover"
                   />
                 </div>
               </AnimatedSection>
@@ -447,9 +454,7 @@ export default function Home() {
                   <div className="col-span-2 p-2">
                     <SlideUp delay={0.4}>
                       <p className="w-[80%] transforming-text font-[300] text-[56px] leading-[72px] lg:text-[40px] lg:leading-[48px]">
-                        {`Feel the divine aura of Banaras — now in Serampore!
-                        Own a Home Where You're Blessed by Ganga Aarti, Every Single Day
-                        We're proud to be India's only riverside township where the sacred Ganga Aarti happens daily`}
+                        {`The Ganges River Dolphin (Platanista gangetica), also know locally as  "Susu", is one of only four freshwater dolphin species in the world and is often regarded as the ‘Tiger of the Ganges'.`}
                       </p>
                     </SlideUp>
                   </div>
@@ -655,38 +660,19 @@ export default function Home() {
         </Element>
       </section>
 
-      {/*  Testimonials */}
-      <section className="bg-white">
-        <div className="container  mx-auto relative certification-section !bg-white pt-10 md:pt-20">
-          <div className="grid grid-cols-2 gap-10 md:px-8 lg:px-24">
-            <div className="max-md:col-span-2">
-              <SlideUp delay={0.4}>
-                <h2 className="hidden md:block project-overview-title !text-[36px] max-md:!leading-11 max-md:font-[400] max-md:text-center md:!text-[56px]">
-                  Building a <span className="orange-color">Brighter?</span>
-                  <br />
-                  Tomorrow
-                </h2>
-                <h2 className="block md:hidden project-overview-title !text-[36px] max-md:!leading-11 max-md:font-[400] max-md:text-center md:text-[56px]">
-                  What our <span className="orange-color">customer says</span>
-                </h2>
-              </SlideUp>
-            </div>
-            <div className="flex md:items-end max-md:col-span-2 max-md:justify-center max-md:text-center">
-              <SlideUp delay={0.6}>
-                <p className="text-[20px] text-[#22252E] font-[400]">
-                  Hear from Our 2800+ Happy Homebuyers
-                </p>
-                {/* <Link href="/testimonials">
-                  <button className="mt-5 border border-[#22252E] rounded-md px-8 py-3 font-satoshi font-bold text-[14px] leading-6 transition hover:bg-[#f5f5f5] cursor-pointer">
-                    Read All Testimonials
-                  </button>
-                </Link>{" "} */}
-              </SlideUp>
-            </div>
+      <section className="md:overflow-x-hidden overflow-hidden py-20">
+        <div className="relative">
+          <div className="text-center w-full">
+            <SlideUp delay={0.4} className="project-overview-title text-center pt-4">
+              <span className="orange-color">Past</span> Projects
+            </SlideUp>
           </div>
-          <Testimonials />
+          <div className="bg-[#F5F8FA] w-full absolute h-[230px] top-115"></div>
         </div>
-      </section>
+        <AnimatedSection>
+          <PastProjectSwiper />
+        </AnimatedSection>
+        </section>
 
       {/* Plans */}
       <SafetySecuritySection />

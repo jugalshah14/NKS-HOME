@@ -284,16 +284,16 @@ export default function Footer() {
         <div>
           <div className="flex flex-col md:flex-row justify-between items-center pt-[36px] md:pt-[128px] gap-[36px] md:gap-0">
             <div className="flex flex-row gap-[20px]">
-              {/* <a className="cursor-pointer" href="/testimonials">
+              <a className="cursor-pointer" href="/testimonials">
                 <div className="text-[14px] leading-[20px] font-satoshi font-[400] text-[#5C5F68]">
                   Testimonials
                 </div>
-              </a> */}
-              {/* <a className="cursor-pointer" href="/faqs">
+              </a>
+              <a className="cursor-pointer" href="/faqs">
                 <div className="text-[14px] leading-[20px] font-satoshi font-[400] text-[#5C5F68]">
                   FAQs
                 </div>
-              </a> */}
+              </a>
               <a className="cursor-pointer" href="">
                 <div className="text-[14px] leading-[20px] font-satoshi font-[400] text-[#5C5F68]">
                   Privacy Policy

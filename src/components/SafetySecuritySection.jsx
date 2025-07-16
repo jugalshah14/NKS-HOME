@@ -60,7 +60,7 @@ const SafetySecuritySection = () => (
               </p>
             </FadeIn>
 
-            <FadeIn delay={0.6} className="flex flex-col items-center col-span-2">
+            <FadeIn delay={0.6} className="flex flex-col items-center col-span-1">
               <Image
                 height={68}
                 width={68}
@@ -70,6 +70,18 @@ const SafetySecuritySection = () => (
               />
               <p className="px-1 max-md:opacity-70 text-[16px] md:text-[20px] font-satoshi font-[400] leading-6 md:leading-[28px] text-white text-center">
                 24 hours surveillance
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.6} className="flex flex-col items-center col-span-1">
+              <Image
+                height={68}
+                width={68}
+                src="/assets/icons/fire-safety.svg"
+                alt="Surveillance"
+                className="w-[48px] h-[48px] md:w-[68px] md:h-[68px] mb-4"
+              />
+              <p className="px-1 max-md:opacity-70 text-[16px] md:text-[20px] font-satoshi font-[400] leading-6 md:leading-[28px] text-white text-center">
+              Fire Safety
               </p>
             </FadeIn>
           </div>

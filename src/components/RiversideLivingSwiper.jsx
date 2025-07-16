@@ -10,7 +10,7 @@ const data = [
   {
     src: "/assets/riverside1.png",
     title:
-      "Offering residents a visual feast that is both inspiring and soothing.",
+      "A spiritual experience at your doorstep with daily ganga arti.",
   },
   {
     src: "/assets/riverside2.png",
@@ -87,7 +87,7 @@ export default function RiversideLivingSwiper() {
       </div>
       <div className="relative h-[140px] top-[-30px] left-7 md:left-0 w-[90%] md:w-[80%] p-4.5 md:p-7 bg-[#FFFFFFB2] z-1 backdrop-filter backdrop-blur-[50px] bg-opacity-80 bg-clip-padding">
         {slide.title}
-      </div>
+      </div> 
     </div>
   );
 

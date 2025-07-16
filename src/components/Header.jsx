@@ -52,44 +52,12 @@ const Header = () => {
           "!bg-white !backdrop-blur-sm has-scrolled"
         }`}
       >
-        <div className="container mx-auto py-4 md:grid md:grid-cols-3 md:items-center flex justify-between items-center max-md:px-5 max-md:py-2 max-md:gap-3">
-          <div className="hidden md:flex items-center justify-start gap-5">
-            <Link
-              href="/why-alcove"
-              className="cursor-not-allowed font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Why Alcove
-            </Link>
-            <Link
-              href="/master-plan"
-              className="cursor-not-allowed font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Master Plans
-            </Link>
-            <Link
-              href="/amenities"
-              className="cursor-not-allowed font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Amenities
-            </Link>
-            <Link
-              href="/location"
-              className="cursor-not-allowed font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Location
-            </Link>
-            <Link
-              href="/life-@-alcove"
-              className="cursor-not-allowed font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Life @Alcove
-            </Link>
-          </div>
+        <div className="container mx-auto py-4 md:grid md:grid-cols-2 md:items-center flex justify-between items-center max-md:px-5 max-md:py-2 max-md:gap-3">
 
-          <div className="md:h-[48px] md:w-[260px] w-[95px] h-[44px] relative max-md:mr-auto md:mx-auto md:flex md:justify-center md:items-center">            <Link href="/">
+          <div className="md:h-[48px] md:w-[260px] w-[95px] h-[44px] relative">            <Link href="/">
               <Image
                 className="invert-100 logo-image"
-                src="/assets/logo.png"
+                src="/assets/logo.svg"
                 alt="logo"
                 fill
                 priority
@@ -98,18 +66,6 @@ const Header = () => {
           </div>
 
           <div className="flex items-center gap-6 md:justify-end">
-            <Link
-              href="/triveni"
-              className="cursor-not-allowed max-md:hidden font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Triveni Omniplex
-            </Link>
-            <Link
-              href="/blogs"
-              className="cursor-not-allowed max-md:hidden font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
-            >
-              Blogs
-            </Link>
             <button
               onClick={handleScheduleVisit}
               className="cursor-pointer max-md:hidden font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
@@ -121,9 +77,7 @@ const Header = () => {
                 Call Now
               </p>
             </div>
-          </div>
-
-          <button className="md:hidden text-[#22252E]" onClick={toggleDrawer}>
+          <button className="text-[#22252E]">
             <Image
               src="/assets/icons/menu.svg"
               height={24}
@@ -132,6 +86,8 @@ const Header = () => {
               className="invert-100 menu-button"
             />
           </button>
+          </div>
+
         </div>
       </header>
       {/*Drawer */}
