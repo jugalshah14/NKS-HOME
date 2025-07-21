@@ -30,7 +30,7 @@ export default function ScrollSpyNav() {
     }, []);
 
     return (
-        <div className="max-md:w-[100%] overflow-hidden sticky z-999 top-20 bg-white flex gap-2 space-x-5 border-t border-b border-[#22252e19] py-6 pb-6 md:py-5 md:pb-5 px-4 md:px-0" id="scroll-spy">
+        <div className="max-md:w-[100%] overflow-hidden sticky z-999 top-0 bg-white flex gap-2 space-x-5 border-t border-b border-[#22252e19] py-6 pb-6 md:py-5 md:pb-5 px-4 md:px-0" id="scroll-spy">
             <div className='!flex items-center ml-auto justify-center'>
                 <ScrollLink
                     activeClass="spy-link-active"
@@ -38,7 +38,7 @@ export default function ScrollSpyNav() {
                     spy={true}
                     className="default-theme-text-color-1"
                     smooth={true}
-                    offset={-160}
+                    offset={-80}
                     duration={500}
                     id="amenities"
                 >
@@ -56,7 +56,7 @@ export default function ScrollSpyNav() {
                     spy={true}
                     className="default-theme-text-color-1"
                     smooth={true}
-                    offset={-160}
+                    offset={-80}
                     duration={500}
                     id="projects"
                 >
@@ -75,7 +75,7 @@ export default function ScrollSpyNav() {
                     spy={true}
                     className="default-theme-text-color-1"
                     smooth={true}
-                    offset={-160}
+                    offset={-80}
                     duration={500}
                     id="ganga"
                 >
@@ -94,7 +94,7 @@ export default function ScrollSpyNav() {
                     spy={true}
                     className="default-theme-text-color-1"
                     smooth={true}
-                    offset={-160}
+                    offset={-80}
                     duration={500}
                     id="why-serampore"
                 >
