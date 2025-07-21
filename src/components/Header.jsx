@@ -53,8 +53,9 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto py-4 md:grid md:grid-cols-2 md:items-center flex justify-between items-center max-md:px-5 max-md:py-2 max-md:gap-3">
-
-          <div className="md:h-[48px] md:w-[260px] w-[95px] h-[44px] relative">            <Link href="/">
+          <div className="md:h-[48px] md:w-[260px] w-[95px] h-[44px] relative">
+            {" "}
+            <Link href="/">
               <Image
                 className="invert-100 logo-image"
                 src="/assets/logo.svg"
@@ -68,26 +69,27 @@ const Header = () => {
           <div className="flex items-center gap-6 md:justify-end">
             <button
               onClick={handleScheduleVisit}
-              className="cursor-pointer max-md:hidden font-satoshi font-medium text-[14px] leading-[19px] text-[#22252E] hover:text-[#de7f4a] transition-colors link-item "
+              className="max-md:hidden h-[40px] w-[100px] md:h-[48px] md:w-[123px] border-1 border-b-4 hover:bg-white transition-all duration-300 cursor-pointer group/header-btn relative rounded-md action-button flex items-center justify-center"
             >
-              Schedule Visit
+              <p className="font-satoshi font-bold leading-6 text-[12px] md:text-[14px] md:leading-[19px] text-[#22252E] group-hover/header-btn:!text-[#010b22]">
+                Schedule Visit
+              </p>
             </button>
             <div className="h-[40px] w-[100px] md:h-[48px] md:w-[123px] border-1 border-b-4 hover:bg-white transition-all duration-300 cursor-pointer group/header-btn relative rounded-md action-button flex items-center justify-center">
               <p className="font-satoshi font-bold leading-6 text-[12px] md:text-[14px] md:leading-[19px] text-[#22252E] group-hover/header-btn:!text-[#010b22]">
                 Call Now
               </p>
             </div>
-          <button className="text-[#22252E]">
-            <Image
-              src="/assets/icons/menu.svg"
-              height={24}
-              width={24}
-              alt="menu"
-              className="invert-100 menu-button"
-            />
-          </button>
+            <button className="text-[#22252E]">
+              <Image
+                src="/assets/icons/menu.svg"
+                height={24}
+                width={24}
+                alt="menu"
+                className="invert-100 menu-button"
+              />
+            </button>
           </div>
-
         </div>
       </header>
       {/*Drawer */}
@@ -174,7 +176,10 @@ const Header = () => {
               </Link>
             </li>
             <li>
-              <Link href="/triveni" className="text-gray-800 hover:text-blue-500">
+              <Link
+                href="/triveni"
+                className="text-gray-800 hover:text-blue-500"
+              >
                 Triveni Omniplex
               </Link>
             </li>
@@ -195,7 +200,10 @@ const Header = () => {
         </div>
       </div>
 
-      <ScheduleVisitModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+      <ScheduleVisitModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+      />
     </>
   );
 };

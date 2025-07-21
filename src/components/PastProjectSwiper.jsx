@@ -16,7 +16,7 @@ const data = [
         title: 'The 42 Night Aerial',
         description: 'Enjoy the beauty of the lotus pond pavilion and unwind with a calming view from the tallest tower in Eastern India.',
         category: 'Luxurious Flats',
-        location: 'Chowringhee, Kolkata'
+        location: 'Chowringhee, Kolkata',
     },
     {
         src: '/assets/project2.png',
@@ -25,16 +25,34 @@ const data = [
         title: 'The Alcove Gloria',
         description: 'Experience comfort and community living with spacious homes, serene landscaping, and doorstep essentials.',
         category: 'Premium Residences',
-        location: 'Lake Town, Kolkata'
+        location: 'Lake Town, Kolkata',
     },
     {
-        src: '/assets/project3.jpg',
+        src: '/assets/project3.png',
         icon1: '/assets/project-icon1.svg',
         icon2: '/assets/project-icon2.svg',
-        title: 'The 42 Kolkata',
-        description: 'Enjoy the beauty of the lotus pond pavilion and unwind with a calming.',
-        category: 'Premium Residences',
-        location: 'Lake Town, Kolkata'
+        title: 'Flora Foundation',
+        description: 'Soak in the charm of water gardens, green landscapes, and amenities crafted for a balanced lifestyle.',
+        category: 'Luxury with Nature-Inspired Living',
+        location: 'Topsia, Kolkata',
+    },
+    {
+        src: '/assets/project4.png',
+        icon1: '/assets/project-icon1.svg',
+        icon2: '/assets/project-icon2.svg',
+        title: 'The Regency',
+        description: 'Live in elegance with well-planned apartments, top-notch amenities, and excellent connectivity to EM Bypass.',
+        category: 'Luxurious Flats',
+        location: 'Topsia, Kolkata',
+    },
+    {
+        src: '/assets/project5.png',
+        icon1: '/assets/project-icon1.svg',
+        icon2: '/assets/project-icon2.svg',
+        title: 'Prayag',
+        description: 'A peaceful riverside community where heritage meets comfort, offering a harmonious lifestyle by the Ganges.',
+        category: 'Affordable Luxury Homes',
+        location: 'Serampore, Kolkata',
     },
 ]
 
