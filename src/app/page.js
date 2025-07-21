@@ -455,7 +455,7 @@ export default function Home() {
                     <SlideUp delay={0.4}>
                       <div className="text-[20px] font-[700] leading-[28px] text-white mb-4">Did you know?</div>
                       <p className="w-[80%] transforming-text font-[300] text-[56px] leading-[72px] lg:text-[40px] lg:leading-[48px]">
-                        {`The Ganges River Dolphin (Platanista gangetica), also know locally as  "Susu", is one of only four freshwater dolphin species in the world and is often regarded as the ‘Tiger of the Ganges'.`}
+                        {`Feel the divine aura of Banaras now in Serampore! Own a Home Where You’re Blessed by Ganga Aarti, Every Single Day We’re proud to be India’s only riverside township where the sacred Ganga Aarti happens daily`}
                       </p>
                     </SlideUp>
                   </div>
