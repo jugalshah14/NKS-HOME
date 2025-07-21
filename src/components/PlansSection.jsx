@@ -24,7 +24,7 @@ export default function PlansSection() {
         area: '567 - 1039 sq. ft.',
         price: '1234',
         link: '/contact-us',
-        imgtype: 'Real Image'
+        imgtype: 'Actual Image'
       },
       {
         img: '/assets/suite.png',
@@ -33,7 +33,7 @@ export default function PlansSection() {
         area: '1440 - 2085 sq. ft.',
         price: '1234',
         link: '/contact-us',
-        imgtype: 'Copied Image'
+        imgtype: 'Actual Image'
       },
       {
         img: '/assets/signature.png',
@@ -42,7 +42,7 @@ export default function PlansSection() {
         area: '567 - 1039 sq. ft.',
         price: '1234',
         link: '/contact-us',
-        imgtype: 'Real Image'
+        imgtype: 'Actual Image'
       },
     ];
 
