@@ -111,7 +111,7 @@ export default function Footer() {
               Bengal 700025
             </p>
             <Link
-              href={"tel:+919555700222"}
+              href={"tel:+9195557 00222"}
               className="flex items-center gap-4 px-4 py-3 border border-[#EDEDED] mt-8 cursor-pointer"
             >
               <div className="relative h-[24px] w-[24px] lg:h-[32px] lg:w-[32px] overflow-hidden">
@@ -126,7 +126,7 @@ export default function Footer() {
                 Call Us
               </span>
               <span className="text-[17px] leading-5 ml-auto font-[400] lg:text-[20px] lg:leading-7 text-[#144D78]">
-                +91 9555700222
+                +91 95557 00222
               </span>
             </Link>
             <Link
@@ -145,7 +145,7 @@ export default function Footer() {
                 Mail Us
               </span>
               <span className="text-[17px] leading-5 ml-auto font-[400] lg:text-[20px] lg:leading-7 text-[#144D78]">
-                marketing@alcoverealty.in
+              marketing@alcoverealty.in
               </span>
             </Link>
           </div>

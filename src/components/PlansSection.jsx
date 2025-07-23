@@ -116,12 +116,12 @@ export default function PlansSection() {
                       </button>
                     </div>
                   </div>
-                  <Link
+                  {/* <Link
                     href={card.link}
                     className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] flex flex-row gap-2 whitespace-nowrap"
                   >
                     Let's Discuss Your Requirements <Image src="/assets/blue-arrow.svg" alt="arrow" width={30} height={10}/>
-                  </Link>
+                  </Link> */}
                 </div>
               </div>
             ))}
@@ -156,7 +156,7 @@ export default function PlansSection() {
             <div className="group absolute right-3 top-3 cursor-pointer flex flex-row items-center rounded-xl bg-black/20">
               <div className="overflow-hidden">
                 <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 translate-x-2 group-hover:px-2 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:translate-x-0 transition-all duration-300 ease-in-out">
-                  Real Image
+                Actual Image
                 </div>
               </div>
               <Image src="/assets/info.svg" alt="info" width={20} height={20} className="" />
@@ -172,7 +172,7 @@ export default function PlansSection() {
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Serenity</h1>
               <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">BHK Type</p>
               <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">1,2,3</p>
-              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Carpet Area</p>
+              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Super Built-up Area</p>
               <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">567 - 1039 sq. ft.</p>
               <div className="pb-[10px]">
                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 mb-1">Price</p>
@@ -186,12 +186,12 @@ export default function PlansSection() {
                   </button>
                 </div>
               </div>
-              <Link
+              {/* <Link
                 href="/contact-us"
                 className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] flex flex-row gap-2"
               >
                 Let's Discuss Your Requirements <Image src="/assets/blue-arrow.svg" alt="arrow" width={40} height={10}/>
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* Card 2 */}
@@ -199,7 +199,7 @@ export default function PlansSection() {
             <div className="group absolute right-3 top-3 cursor-pointer flex flex-row items-center rounded-xl bg-black/20">
               <div className="overflow-hidden">
                 <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 translate-x-2 group-hover:px-2 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:translate-x-0 transition-all duration-300 ease-in-out">
-                  Copied Image
+                Actual Image
                 </div>
               </div>
               <Image src="/assets/info.svg" alt="info" width={20} height={20} className="" />
@@ -215,8 +215,8 @@ export default function PlansSection() {
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Suite</h1>
               <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">BHK Type</p>
               <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">3,4</p>
-              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Carpet Area</p>
-              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">1440 - 2085 sq. ft.</p>
+              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Super Built-up Area</p>
+              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">1400 - 2085 sq. ft.</p>
               <div className="pb-[10px]">
                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 mb-1">Price</p>
                 <div className="flex items-center">
@@ -229,12 +229,12 @@ export default function PlansSection() {
                   </button>
                 </div>
               </div>
-              <Link
+              {/* <Link
                 href="/contact-us"
                 className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] flex flex-row gap-2"
               >
                 Let's Discuss Your Requirements <Image src="/assets/blue-arrow.svg" alt="arrow" width={40} height={10}/>
-              </Link>
+              </Link> */}
             </div>
           </div>
           {/* Card 3 */}
@@ -242,7 +242,7 @@ export default function PlansSection() {
             <div className="group absolute right-3 top-3 cursor-pointer flex flex-row items-center rounded-xl bg-black/20">
               <div className="overflow-hidden">
                 <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 translate-x-2 group-hover:px-2 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:translate-x-0 transition-all duration-300 ease-in-out">
-                  Real Image
+                Actual Image
                 </div>
               </div>
               <Image src="/assets/info.svg" alt="info" width={20} height={20} className="" />
@@ -257,9 +257,9 @@ export default function PlansSection() {
             <div className="bg-white p-[28px] mx-[20px] flex flex-col mt-[-20px]">
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Signature</h1>
               <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">BHK Type</p>
-              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">1,2,3</p>
-              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Carpet Area</p>
-              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">567 - 1039 sq. ft.</p>
+              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">2,3</p>
+              <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 pb-[4px]">Super Built-up Area</p>
+              <p className="text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black pb-[20px]">887 - 1039 sq. ft.</p>
               <div className="pb-[10px]">
                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-black/50 mb-1">Price</p>
                 <div className="flex items-center">
@@ -272,12 +272,12 @@ export default function PlansSection() {
                   </button>
                 </div>
               </div>
-              <Link
+              {/* <Link
                 href="/contact-us"
                 className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] flex flex-row gap-2"
               >
                 Let's Discuss Your Requirements <Image src="/assets/blue-arrow.svg" alt="arrow" width={40} height={10}/>
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>

@@ -75,20 +75,14 @@ const Header = () => {
                 Schedule Visit
               </p>
             </button>
-            <div className="h-[40px] w-[100px] md:h-[48px] md:w-[123px] border-1 border-b-4 hover:bg-white transition-all duration-300 cursor-pointer group/header-btn relative rounded-md action-button flex items-center justify-center">
-              <p className="font-satoshi font-bold leading-6 text-[12px] md:text-[14px] md:leading-[19px] text-[#22252E] group-hover/header-btn:!text-[#010b22]">
-                Call Now
-              </p>
-            </div>
-            <button className="text-[#22252E]">
-              <Image
-                src="/assets/icons/menu.svg"
-                height={24}
-                width={24}
-                alt="menu"
-                className="invert-100 menu-button"
+            <Link href={"tel:+9195557 00222"} className="h-[24px] w-[24px] relative cursor-pointer">
+            <Image
+                src="/assets/phone.svg"
+                alt="logo"
+                fill
+                priority
               />
-            </button>
+            </Link>
           </div>
         </div>
       </header>

@@ -30,7 +30,7 @@ const settings = {
       breakpoint: 768,
       settings: {
         centerMode: false,
-        slidesToShow: 1.05,
+        slidesToShow: 1,
       },
     },
   ],
@@ -97,13 +97,13 @@ export default function SeramporeSwiper({ data }) {
               <Image
                 src={slide.src}
                 alt="slide-0"
-                height={160}
-                width={160}
+                height={132}
+                width={132}
                 className="relative !h-[100px] !w-[100px] md:!h-[132px] md:!w-[132px] z-1" />
               <div
-                className={`w-fit relative flex flex-col md:p-7 md:pb-0 p-2 pl-3 pt-10 md:pt-12 pr-20 md:pr-10 `}
+                className={`w-full relative flex flex-col md:p-4 md:pb-0 p-2 pt-10 md:pt-12 `}
               >
-                <div className="location-slide bg-[#F8F8F8] top-6 -left-[70px] min-w-[120%] md:min-w-full sm:w-[120%] h-[100%] absolute back-active" />
+                <div className="location-slide bg-[#F8F8F8] top-6 -left-[70px] min-w-[140%] h-[100%] absolute back-active" />
                 <Image
                   src={slide.icon}
                   height={48}
@@ -111,7 +111,7 @@ export default function SeramporeSwiper({ data }) {
                   alt="icon"
                   className={`max-md:!h-[33px] max-md:!w-[33px] image z-1`} />
                 <p
-                  className={`md:!w-[172px] mt-2 text-[14px] md:text-[20px] text-[#22252E] font-[700] z-1 leading-5 md:leading-[28px] title`}
+                  className={`md:!w-full text-[14px] md:text-[20px] text-[#22252E] font-[700] z-1 leading-5 md:leading-[28px] title`}
                 >
                   {slide.title}
                 </p>
@@ -124,7 +124,7 @@ export default function SeramporeSwiper({ data }) {
             </div>
           ))}
         </Slider>
-        <div className="relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-5">
+        <div className="relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-5 mb-20">
           <div className="h-full flex items-center justify-center">
             <button
               className="focus:outline-none cursor-pointer disabled:cursor-auto"

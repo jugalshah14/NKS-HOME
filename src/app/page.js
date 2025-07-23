@@ -90,6 +90,11 @@ export default function Home() {
                 Affordable Luxury by the Riverside
               </h1>
             </SlideUp>
+            <SlideUp delay={0.4}>
+              <p className=" mt-6 font-satoshi text-[#FFFFFF] font-[400] text-[14px] leading-5">
+                HIRA/P/HOO/2019/000635 &nbsp; | &nbsp;<Link href="https://www.rera.wb.gov.in" target="_blank" className="text-[#FFFFFF]">www.rera.wb.gov.in</Link>
+              </p>
+            </SlideUp>
           </div>
         </div>
         <WhyRiversideFloatingButton />
@@ -454,7 +459,7 @@ export default function Home() {
                   <div className="col-span-2 p-2">
                     <SlideUp delay={0.4}>
                       <div className="text-[20px] font-[700] leading-[28px] text-white mb-4">Did you know?</div>
-                      <p className="w-[80%] transforming-text font-[300] text-[56px] leading-[72px] lg:text-[40px] lg:leading-[48px]">
+                      <p className="w-[90%] transforming-text font-[300] text-[56px] leading-[72px] lg:text-[40px] lg:leading-[48px]">
                         {`Feel the divine aura of Banaras now in Serampore! Own a Home Where You’re Blessed by Ganga Aarti, Every Single Day We’re proud to be India’s only riverside township where the sacred Ganga Aarti happens daily`}
                       </p>
                     </SlideUp>
@@ -559,7 +564,7 @@ export default function Home() {
                         </SlideUp>
                       </div>
                       <div className="max-md:mt-5 max-md:col-span-2 md:p-2 flex max-md:px-7 gap-10 items-center">
-                        <div className="mb-12">
+                        <div>
                           <div className="space-y-11">
                             <SlideIn
                               delay={0.2}
