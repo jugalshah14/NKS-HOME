@@ -82,7 +82,7 @@ export default function PlansSection() {
         <div className="md:hidden w-full">
           <Slider ref={swiperRef} {...mobileSettings}>
             {cards.map((card, idx) => (
-              <div key={idx} className={`w-full flex flex-col relative pl-[16px]${idx === cards.length - 1 ? ' pr-[16px]' : ''}`}>
+              <div key={idx} className={`w-full flex flex-col relative pl-[16px]`}>
                 <div className={`absolute ${idx === cards.length - 1 ? 'right-6' : 'right-2'} top-2 cursor-pointer flex flex-row items-center rounded-xl bg-black/20`}>
                   <div className="overflow-hidden">
                     <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 px-2 opacity-100 max-w-[100px] translate-x-0 transition-all duration-300 ease-in-out">

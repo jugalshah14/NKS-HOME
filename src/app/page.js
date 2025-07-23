@@ -17,8 +17,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { Element } from "react-scroll";
 import SafetySecuritySection from "@/components/SafetySecuritySection";
-import CertificationSection from "@/components/CertificationSection";
+// import CertificationSection from "@/components/CertificationSection";
 import PastProjectSwiper from "@/components/PastProjectSwiper";
+import ScheduleVisitModal from "@/components/ScheduleVisitModal";
+import { useState } from "react";
 
 const seramporeData = [
   {
@@ -58,9 +60,15 @@ const seramporeData = [
   },
 ];
 
-export default function Home() {
+export default function Home () {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const handleScheduleVisit = (e) => {
+    e.preventDefault();
+    setIsModalOpen(true);
+  };
+
   return (
-    <main>
+    <><main>
       {/* Hero Section */}
       <section id="Hero_Section" className="relative h-screen">
         <Image
@@ -68,15 +76,13 @@ export default function Home() {
           src="/assets/Riverview.png"
           alt="Riverside Luxury Residences"
           layout="fill"
-          priority
-        />
+          priority />
         <Image
           className="md:hidden inset-0 w-full h-full object-cover"
           src="/assets/Riverviewmobile.png"
           alt="Riverside Luxury Residences"
           layout="fill"
-          priority
-        />
+          priority />
         <div className="md:hidden hero-section-bg h-[100%] w-[100%] top-0 left-0" />
         <div className="absolute inset-0 flex flex-col justify-center">
           <div className="container mx-auto">
@@ -91,7 +97,7 @@ export default function Home() {
               </h1>
             </SlideUp>
             <SlideUp delay={0.4}>
-              <p className=" mt-6 font-satoshi text-[#FFFFFF] font-[400] text-[14px] leading-5">
+              <p className=" mt-6 max-md:text-center font-satoshi text-[#FFFFFF] font-[400] text-[14px] leading-5">
                 HIRA/P/HOO/2019/000635 &nbsp; | &nbsp;<Link href="https://www.rera.wb.gov.in" target="_blank" className="text-[#FFFFFF]">www.rera.wb.gov.in</Link>
               </p>
             </SlideUp>
@@ -104,12 +110,12 @@ export default function Home() {
       </section>
 
       <div class="container mx-auto">
-        <div class="flex justify-between">
-          <div class="text-[56px] font-normal leading-[72px] text-black font-cormorant">
-            <span class="text-[#DE804B]">Fill the form</span> to <br /> book a
-            visit to the <br /> site
+        <div class="flex flex-col md:flex-row justify-between">
+          <div class="md:max-w-[35%] text-[56px] max-md:text-center font-normal leading-[72px] text-black font-cormorant">
+            <span class="text-[#DE804B]">Fill the form</span> to book a
+            visit to the site
           </div>
-          <div class="bg-white p-8 w-full max-w-2xl mx-4 relative box-shadow">
+          <div class="bg-white p-8 w-full max-w-2xl md:mx-4 relative box-shadow">
             <h2 class="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
 
             <form class="space-y-4">
@@ -118,15 +124,13 @@ export default function Home() {
                   <input
                     type="text"
                     placeholder="Name*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
-                  />
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none" />
                 </div>
                 <div>
                   <input
                     type="email"
                     placeholder="Email*"
-                    class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
-                  />
+                    class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none" />
                 </div>
               </div>
 
@@ -134,8 +138,7 @@ export default function Home() {
                 <input
                   type="tel"
                   placeholder="Phone*"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
-                />
+                  class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none" />
               </div>
 
               <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -196,7 +199,7 @@ export default function Home() {
       {/* Project Overview */}
       <section className="pb-2 pt-16 md:py-16 bg-white">
         <div className="container  mx-auto px-6">
-          <div className="text-center mb-7 md:mb-16">
+          <div className="text-center mb-7 md:mb-10">
             <SlideUp delay={0.4}>
               <h2 className="project-overview-title max-md:!text-[36px] max-md:!leading-11 max-md:font-[400] text-center">
                 Project
@@ -219,17 +222,13 @@ export default function Home() {
                 width={68}
                 height={68}
                 alt="Connectivity"
-                className=""
-              />
+                className="" />
             </div>
-            <h3 className="hidden md:block text-[40px] font-satoshi font-[400] leading-[54px] text-[#22252e] mb-1">
+            <h3 className="block md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
               3 way
             </h3>
-            <p className="hidden md:block text-[20px] font-satoshi font-[400] leading-[27px] text-[#22252e] text-center">
+            <p className="block md:text-[20px] text-[16px]  font-satoshi font-[400] leading-[27px] md:leading-[28px] text-[#22252e] text-center">
               Connectivity
-            </p>
-            <p className="block md:hidden text-[18px] font-satoshi font-[400] leading-6 text-[#22252e] text-center">
-              Tallest towers of Bengal
             </p>
           </SlideUp>
 
@@ -240,16 +239,12 @@ export default function Home() {
                 width={68}
                 height={68}
                 alt="Clubhouse"
-                className=""
-              />
+                className="" />
             </div>
-            <h3 className="hidden md:block text-[40px] font-satoshi font-[400] leading-[54px] text-[#22252e] mb-1">
+            <h3 className="block md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
               56,000 sq.ft.
             </h3>
-            <p className="hidden md:block text-[20px] font-satoshi font-[400] leading-[28px] text-[#22252e] text-center">{`Hooghly's largest Residential Clubhouse`}</p>
-            <p className="block md:hidden text-[18px] font-satoshi font-[400] leading-6 text-[#22252e] text-center">
-              Largest clubhouse in Hooghly 56,000 Sq. ft.
-            </p>
+            <p className="block md:text-[20px] text-[16px]  font-satoshi font-[400] leading-[27px] md:leading-[28px] text-[#22252e] text-center">{`Hooghly's largest Residential Clubhouse`}</p>
           </SlideUp>
 
           <SlideUp
@@ -262,17 +257,13 @@ export default function Home() {
                 width={68}
                 height={68}
                 alt="Project Area"
-                className=""
-              />
+                className="" />
             </div>
-            <h3 className="hidden md:block text-[40px] font-satoshi font-[400] leading-[54px] text-[#22252e] mb-1">
+            <h3 className="block md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
               19 acres
             </h3>
-            <p className="hidden md:block text-[20px] font-satoshi font-[400] leading-[27px] text-[#22252e] text-center">
+            <p className="block md:text-[20px] text-[16px]  font-satoshi font-[400] leading-[27px] md:leading-[28px] text-[#22252e] text-center">
               Area of Project
-            </p>
-            <p className="block md:hidden text-[18px] font-satoshi font-[400] leading-6 text-[#22252e] text-center">
-              Mini-theatre & Amphi-theatre
             </p>
           </SlideUp>
 
@@ -286,16 +277,12 @@ export default function Home() {
                 width={68}
                 height={68}
                 alt="Garden and Ghat"
-                className=""
-              />
+                className="" />
             </div>
-            <h3 className="hidden md:block text-[40px] font-satoshi font-[400] leading-[54px] text-[#22252e] mb-1">
+            <h3 className="block md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
               3500+
             </h3>
-            <p className="hidden md:block text-[20px] font-satoshi font-[400] leading-[28px] text-[#22252e] text-center">
-              Families Booked
-            </p>
-            <p className="block md:hidden text-[18px] font-satoshi font-[400] leading-6 text-[#22252e] text-center">
+            <p className="block md:text-[20px] text-[16px]  font-satoshi font-[400] leading-[27px] md:leading-[28px] text-[#22252e] text-center">
               Families Booked
             </p>
           </SlideUp>
@@ -303,7 +290,7 @@ export default function Home() {
       </section>
 
       {/* Certification Information */}
-      <CertificationSection />
+      {/* <CertificationSection /> */}
 
       <section className="relative">
         {/* Subnav with scroll spy*/}
@@ -324,9 +311,7 @@ export default function Home() {
               </div>
               <AnimatedSection className="block relative">
                 <div
-                  className={
-                    "absolute top-5 right-5 cursor-pointer flex flex-row items-center rounded-xl bg-black/20 z-10 group"
-                  }
+                  className={"absolute top-5 right-5 cursor-pointer flex flex-row items-center rounded-xl bg-black/20 z-10 group"}
                 >
                   <div className="overflow-hidden">
                     <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 group-hover:px-2 group-hover:opacity-100 group-hover:max-w-[100px] group-hover:translate-x-0 transition-all duration-300 ease-in-out">
@@ -338,16 +323,14 @@ export default function Home() {
                     src="/assets/icons/info.svg"
                     height={30}
                     width={30}
-                    className=""
-                  />
+                    className="" />
                 </div>
                 <div className="flex w-full h-[167px] md:h-[558px] justify-center relative">
                   <Image
                     fill
                     src="/assets/bitmap.png"
                     alt="Aerial view of Riverside Residences"
-                    className=" object-cover"
-                  />
+                    className=" object-cover" />
                 </div>
               </AnimatedSection>
               <div className="block md:hidden relative">
@@ -371,7 +354,7 @@ export default function Home() {
 
         <Element name="section-Plans">
           {/* Plans Section */}
-          <div className="bg-[#FDF9F6]">
+          <div className="bg-[#F5F8FA]">
             <section className="container  mx-auto">
               <div className="relative md:py-[80px]">
                 <div className="flex text-center flex-col justify-center items-center">
@@ -393,11 +376,11 @@ export default function Home() {
 
           {/* Plans Types */}
           <section className="bg-white">
-            <div className=" container mx-auto relative certification-section !bg-white pt-20">
+            <div className=" container mx-auto relative certification-section !bg-white md:pt-20 pt-10">
               <div className="md:grid md:grid-cols-2 gap-10 justify-baseline">
                 <div className="">
                   <SlideUp delay={0.4}>
-                    <h2 className="project-overview-title text-[56px] text-center md:text-left">
+                    <h2 className="project-overview-title text-[56px] text-center md:text-left max-md:px-5">
                       Comfortable Living, Simplified — Discover Yourself by the{" "}
                       <span className="orange-color">Sacred</span> and{" "}
                       <span className="orange-color">Tranquil Rhythms</span> of
@@ -432,8 +415,7 @@ export default function Home() {
               <p className="enough-reasons-text block md:hidden font-[400] text-[24px] leading-8 w-[85%] text-center mb-8">
                 Enough reasons to live by Ganges?
               </p>
-              <Link href="/contact-us">
-                <button className="md:min-h-[4rem] min-h-[3.5rem] h-full relative md:-top-7 bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
+                <button onClick={handleScheduleVisit} className="md:min-h-[4rem] min-h-[3.5rem] h-full relative md:-top-7 bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
                   <div className="px-6 py-3 mr-20">
                     <span>Schedule a Visit</span>
                   </div>
@@ -441,7 +423,6 @@ export default function Home() {
                     ↗
                   </span>
                 </button>
-              </Link>
             </AnimatedSection>
           </section>
         </Element>
@@ -472,15 +453,13 @@ export default function Home() {
                           width={15}
                           height={15}
                           alt="verticalwaves"
-                          className="opacity-[0.15]"
-                        />
+                          className="opacity-[0.15]" />
                         <Image
                           src={"/assets/icons/verticalwaves.svg"}
                           width={15}
                           height={15}
                           alt="verticalwaves"
-                          className="opacity-[0.15]"
-                        />
+                          className="opacity-[0.15]" />
                       </div>
                       <div className="flex flex-col">
                         <SlideUp delay={0.6}>
@@ -489,8 +468,7 @@ export default function Home() {
                           </p>
                         </SlideUp>
                         <SlideUp delay={0.8} className="w-full">
-                          <Link href="/contact-us">
-                            <button className="w-full md:min-h-[4rem] min-h-[3.5rem] h-full relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
+                            <button onClick={handleScheduleVisit} className="w-full md:min-h-[4rem] min-h-[3.5rem] h-full relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
                               <div className="px-6 py-3">
                                 <span>Schedule a Visit</span>
                               </div>
@@ -498,7 +476,6 @@ export default function Home() {
                                 ↗
                               </span>
                             </button>
-                          </Link>
                         </SlideUp>
                       </div>
                     </div>
@@ -576,8 +553,7 @@ export default function Home() {
                                   src="/assets/icons/railroad-metro.svg"
                                   alt="metro"
                                   fill
-                                  className="object-cover"
-                                />
+                                  className="object-cover" />
                               </div>
                               <div>
                                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-white/50 mb-1">
@@ -599,8 +575,7 @@ export default function Home() {
                                   src="/assets/icons/airport-road.svg"
                                   alt="metro"
                                   fill
-                                  className="object-cover"
-                                />
+                                  className="object-cover" />
                               </div>
                               <div>
                                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-white/50 mb-1">
@@ -622,8 +597,7 @@ export default function Home() {
                                   src="/assets/icons/railroad-train.svg"
                                   alt="metro"
                                   fill
-                                  className="object-cover"
-                                />
+                                  className="object-cover" />
                               </div>
                               <div>
                                 <p className="text-[12px] md:text-[16px] font-satoshi font-[400] leading-5 md:leading-[22px] text-white/50 mb-1">
@@ -649,7 +623,7 @@ export default function Home() {
               <SlideUp delay={0.8}>
                 <div className="flex md:hidden justify-center relative -top-7">
                   <button
-                    href="/contact-us"
+                    onClick={handleScheduleVisit}
                     className="md:min-h-[4rem] min-h-[3.5rem] h-full inline-flex relative bg-[#144D78] hover:bg-blue-800 transition text-white font-medium md:hidden items-center gap-2 overflow-hidden button-primary"
                   >
                     <div className="px-6 py-3 mr-20">
@@ -666,7 +640,7 @@ export default function Home() {
         </Element>
       </section>
 
-      <section className="md:overflow-x-hidden overflow-hidden py-20">
+      <section className="md:overflow-x-hidden overflow-hidden md:py-20">
         <div className="relative">
           <div className="text-center w-full">
             <SlideUp delay={0.4} className="project-overview-title text-center pt-4">
@@ -678,10 +652,13 @@ export default function Home() {
         <AnimatedSection>
           <PastProjectSwiper />
         </AnimatedSection>
-        </section>
+      </section>
 
       {/* Plans */}
       <SafetySecuritySection />
     </main>
+      <ScheduleVisitModal
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)} /></>
   );
 }

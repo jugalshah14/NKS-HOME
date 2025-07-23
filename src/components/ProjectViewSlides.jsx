@@ -109,7 +109,7 @@ export default function ProjectViewSlides() {
                                 fill
                             />
                             <div className="absolute inset-0 rounded-lg z-2">
-                                <h3 className="max-md:w-[100%] max-md:text-center bottom-10 absolute md:left-10 text-[28px] md:text-[48px] font-satoshi font-[400] leading-8 md:leading-[65px] text-white">
+                                <h3 className="max-md:w-[100%] max-md:text-center md:bottom-10 bottom-5 absolute md:left-10 text-[28px] md:text-[48px] font-satoshi font-[400] leading-8 md:leading-[65px] text-white">
                                     {slide.title}
                                 </h3>
                             </div>

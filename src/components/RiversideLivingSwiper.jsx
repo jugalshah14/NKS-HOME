@@ -37,7 +37,29 @@ const settings = {
 export default function RiversideLivingSwiper() {
   const containerRef = useRef(null);
   const cardsContainerRef = useRef(null);
+  const sliderRef = useRef(null); // Reference to the slider
   const [translateWidth, setTranslateWidth] = useState(0);
+
+  // State for mobile slider navigation
+  const [mobileIndex, setMobileIndex] = useState(0);
+  const isMobilePrevDisabled = mobileIndex === 0;
+  const isMobileNextDisabled = mobileIndex === data.length - 1;
+
+  // Handler to go to previous slide in the mobile view
+  const handlePrev = () => {
+    if (mobileIndex > 0) {
+      setMobileIndex(mobileIndex - 1);
+      sliderRef.current.slickPrev(); // Navigate using slickPrev
+    }
+  };
+
+  // Handler to go to next slide in the mobile view
+  const handleNext = () => {
+    if (mobileIndex < data.length - 1) {
+      setMobileIndex(mobileIndex + 1);
+      sliderRef.current.slickNext(); // Navigate using slickNext
+    }
+  };
 
   useEffect(() => {
     const calculateTranslateWidth = () => {
@@ -87,7 +109,7 @@ export default function RiversideLivingSwiper() {
       </div>
       <div className="relative h-[140px] top-[-30px] left-7 md:left-0 w-[90%] md:w-[80%] p-4.5 md:p-7 bg-[#FFFFFFB2] z-1 backdrop-filter backdrop-blur-[50px] bg-opacity-80 bg-clip-padding">
         {slide.title}
-      </div> 
+      </div>
     </div>
   );
 
@@ -108,7 +130,36 @@ export default function RiversideLivingSwiper() {
 
       {/* Mobile Slider */}
       <div className="md:hidden pt-10 px-4 overflow-hidden">
-        <Slider {...settings}>{data.map(renderCard)}</Slider>
+        <Slider ref={sliderRef} {...settings}>
+          {data.map(renderCard)}
+        </Slider>
+
+        {/* Mobile Navigation */}
+        <div className="flex z-11 bg-white items-center justify-around px-1 py-5 w-full">
+          <div className="h-full flex items-center justify-center">
+            <button
+              className={`focus:outline-none cursor-pointer ${isMobilePrevDisabled ? 'opacity-30' : ''}`}
+              onClick={handlePrev}
+              disabled={isMobilePrevDisabled}
+            >
+              <Image src="/assets/arrow-main.svg" alt="Previous" height={20} width={19} className="transform rotate-180" />
+            </button>
+          </div>
+          <div className="flex gap-2 items-center font-[700] text-black">
+            {mobileIndex + 1} 
+            <div className="h-0.5 w-8 bg-[#D9D9D9]" />
+            <div className=' text-black/30'>{data.length}</div>
+          </div>
+          <div className="h-full flex items-center justify-center">
+            <button
+              className={`focus:outline-none cursor-pointer ${isMobileNextDisabled ? 'opacity-30' : ''}`}
+              onClick={handleNext}
+              disabled={isMobileNextDisabled}
+            >
+              <Image src="/assets/arrow-main.svg" alt="Next" height={20} width={19} className="" />
+            </button>
+          </div>
+        </div>
       </div>
     </div>
   );

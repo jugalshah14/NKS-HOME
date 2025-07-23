@@ -175,7 +175,7 @@ const GangaVideoSection = () => {
           </div>
           <SlideUp delay={0.8}>
             <p className="did-you-know-m w-[85%] mx-auto text-center font-[400] text-[24px] leading-7 mb-4 pt-4">
-              Feel the divine aura of Banaras — now in Serampore!
+            Feel the divine aura of Banaras now in Serampore! Own a Home Where You’re Blessed by Ganga Aarti, Every Single Day We’re proud to be India’s only riverside township where the sacred Ganga Aarti happens daily
             </p>
           </SlideUp>
         </div>
