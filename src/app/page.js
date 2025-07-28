@@ -111,7 +111,7 @@ export default function Home () {
 
       <div class="container mx-auto">
         <div class="flex flex-col md:flex-row justify-between">
-          <div class="md:max-w-[35%] text-[56px] max-md:text-center font-normal leading-[72px] text-black font-cormorant">
+          <div class="md:max-w-[35%] md:text-[56px] text-[36px] max-md:text-center font-normal md:leading-[72px] leading-[44px] text-black font-cormorant max-md:p-5">
             <span class="text-[#DE804B]">Fill the form</span> to book a
             visit to the site
           </div>
@@ -321,8 +321,8 @@ export default function Home () {
                   <Image
                     alt=""
                     src="/assets/icons/info.svg"
-                    height={30}
-                    width={30}
+                    height={25}
+                    width={25}
                     className="" />
                 </div>
                 <div className="flex w-full h-[167px] md:h-[558px] justify-center relative">
@@ -640,7 +640,7 @@ export default function Home () {
         </Element>
       </section>
 
-      <section className="md:overflow-x-hidden overflow-hidden md:py-20">
+      <section className="md:overflow-x-hidden overflow-hidden md:py-20 max-md:pb-10">
         <div className="relative">
           <div className="text-center w-full">
             <SlideUp delay={0.4} className="project-overview-title text-center pt-4">

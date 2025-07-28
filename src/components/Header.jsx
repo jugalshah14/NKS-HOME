@@ -75,7 +75,7 @@ const Header = () => {
                 Schedule Visit
               </p>
             </button>
-            <Link href={"tel:+9195557 00222"} className="h-[24px] w-[24px] relative cursor-pointer">
+            <Link href={"tel:+9182874 00700"} className="h-[24px] w-[24px] relative cursor-pointer">
             <Image
                 src="/assets/phone.svg"
                 alt="logo"

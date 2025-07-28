@@ -114,7 +114,7 @@ export default function RiversideLivingSwiper() {
   );
 
   return (
-    <div ref={containerRef} className="relative md:h-[170vh] md:mt-10">
+    <div ref={containerRef} className="relative md:h-[150vh] md:mt-10">
       {/* Desktop Scroll Animation */}
       <div className="hidden md:block md:sticky md:top-20 lg:top-50">
         <div className="overflow-hidden pl-20">

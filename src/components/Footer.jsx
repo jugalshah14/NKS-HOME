@@ -91,7 +91,7 @@ export default function Footer() {
 
   return (
     <div className="relative">
-      <div className="container mx-auto px-4 lg:px-8 lg:px-24 bg-white relative pt-[60px] md:pt-[80px]">
+      <div className="container mx-auto px-4 lg:px-8 lg:px-24 bg-white relative pt-[1px] md:pt-[80px]">
         <div className="grid grid-cols-2 lg:gap-30">
           <div className="max-lg:col-span-2 order-2 lg:order-1">
             <h2 className="hidden lg:block project-overview-title text-[56px] !text-[#22252E] mb-8">
@@ -111,7 +111,7 @@ export default function Footer() {
               Bengal 700025
             </p>
             <Link
-              href={"tel:+9195557 00222"}
+              href={"tel:+9182874 00700"}
               className="flex items-center gap-4 px-4 py-3 border border-[#EDEDED] mt-8 cursor-pointer"
             >
               <div className="relative h-[24px] w-[24px] lg:h-[32px] lg:w-[32px] overflow-hidden">
@@ -126,7 +126,7 @@ export default function Footer() {
                 Call Us
               </span>
               <span className="text-[17px] leading-5 ml-auto font-[400] lg:text-[20px] lg:leading-7 text-[#144D78]">
-                +91 95557 00222
+                +91 82874 00700
               </span>
             </Link>
             <Link
