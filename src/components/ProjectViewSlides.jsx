@@ -108,7 +108,9 @@ export default function ProjectViewSlides() {
                                 className="object-fill"
                                 fill
                             />
-                            <div className="absolute inset-0 rounded-lg z-2">
+                            <div className="absolute inset-0 rounded-lg z-2" style={{
+                                background: 'linear-gradient(180deg, #000000 -48%, rgba(0, 0, 0, 0) 44.08%, #0D0C0C 130.57%)'
+                            }}>
                                 <h3 className="max-md:w-[100%] max-md:text-center md:bottom-10 bottom-5 absolute md:left-10 text-[28px] md:text-[48px] font-satoshi font-[400] leading-8 md:leading-[65px] text-white">
                                     {slide.title}
                                 </h3>

@@ -6,6 +6,7 @@ import Slider from "react-slick";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MobileSwiperNavigation from "./MobileSwiperNavigation";
 
 
 const data = [
@@ -137,7 +138,7 @@ export default function PastProjectSwiper() {
                                         <p className="text-[14px] md:text-[14px] font-satoshi font-[400] leading-5 md:leading-[20px] text-white/50 mb-1">About Project</p>
                                         <p className="text-[16px] md:text-[16px] font-satoshi font-[400] leading-6 md:leading-[20px] text-white">{slide.description}</p>
                                     </div>
-                                    <div className='flex flex-row gap-4 pb-[24px]'>
+                                    <div className='flex flex-row items-center gap-4 pb-[24px]'>
                                         <div>
                                             <Image src={slide.icon1} alt="slide-0" width={28} height={28}/>
                                         </div>
@@ -146,7 +147,7 @@ export default function PastProjectSwiper() {
                                             <p className="text-[16px] md:text-[16px] font-satoshi font-[400] leading-6 md:leading-[20px] text-white">{slide.category}</p>
                                         </div>
                                     </div>
-                                    <div className='flex flex-row gap-4'>
+                                    <div className='flex flex-row items-center gap-4'>
                                         <div>
                                             <Image src={slide.icon2} alt="slide-0" width={28} height={28}/>
                                         </div>
@@ -164,40 +165,17 @@ export default function PastProjectSwiper() {
             </div>
         </div>
         <div className='w-full ietms-center justify-center flex px-4 pt-2 md:pt-0'>
-                <div className="w-full relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-2 md:py-5 max-w-[366px]">
-                    <div className="h-full flex items-center justify-center">
-                        <button 
-                            className={`focus:outline-none cursor-pointer transition-all duration-300 ${activeIndex === 0 ? 'opacity-30' : 'opacity-100'}`}
-                            onClick={handlePrev}
-                            disabled={activeIndex === 0}
-                        >
-                            <Image 
-                                src="/assets/arrow.svg" 
-                                alt="Previous" 
-                                height={20} 
-                                width={19} 
-                                className="transform rotate-180" 
-                            />
-                        </button>
-                    </div>
-                    <div className="flex gap-2 items-center text-[20px] leading-[28px] font-[700]">{Math.ceil(activeIndex+1)} <div className="h-0.5 w-8 bg-black/30 mx-2" /><div className='text-black/30'>{data.length}</div> </div>
-                    <div className="h-full flex items-center justify-center">
-                        <button 
-                            className={`focus:outline-none cursor-pointer transition-all duration-300 ${Math.ceil(activeIndex+1) >= data.length ? 'opacity-30' : 'opacity-100'}`}
-                            onClick={handleNext}
-                            disabled={Math.ceil(activeIndex+1) >= data.length}
-                        >
-                            <Image 
-                                src="/assets/arrow.svg" 
-                                alt="Next" 
-                                height={20} 
-                                width={19} 
-                                className="" 
-                            />
-                        </button>
-                    </div>
-                </div>
-            </div>
+          <div className="w-full relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-2 md:py-5 max-w-[366px]">
+            <MobileSwiperNavigation
+              currentIndex={Math.ceil(activeIndex)}
+              totalSlides={data.length}
+              onPrev={handlePrev}
+              onNext={handleNext}
+              isPrevDisabled={activeIndex === 0}
+              isNextDisabled={Math.ceil(activeIndex + 1) >= data.length}
+            />
+          </div>
+        </div>
             </>
     )
 };

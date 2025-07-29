@@ -7,6 +7,7 @@ import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { AnimatedSection } from "./animations";
+import MobileSwiperNavigation from "./MobileSwiperNavigation";
 
 const settings = {
   className: "serampore-swiper overflow-x-visible",
@@ -124,39 +125,15 @@ export default function SeramporeSwiper({ data }) {
             </div>
           ))}
         </Slider>
-        <div className="relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-5 mb-20">
-          <div className="h-full flex items-center justify-center">
-            <button
-              className="focus:outline-none cursor-pointer disabled:cursor-auto"
-              onClick={handlePrev}
-              disabled={activeIndex === 1}
-            >
-              <Image
-                src="/assets/icons/arrow-right.svg"
-                alt="Previous"
-                height={20}
-                width={19}
-                className={`${activeIndex === 1 && "invert-75"} transform rotate-180`} />
-            </button>
-          </div>
-          <div className="flex gap-2 items-center">
-            {activeIndex} <div className="h-0.5 w-8 bg-[#D9D9D9]" /> {data.length}
-          </div>
-          <div className="h-full flex items-center justify-center disabled:cursor-auto">
-            <button
-              className="focus:outline-none cursor-pointer"
-              onClick={handleNext}
-              disabled={activeIndex === data.length}
-            >
-              <Image
-                src="/assets/icons/arrow-right.svg"
-                alt="Next"
-                height={20}
-                width={19}
-                className={activeIndex === data.length && "invert-75"} />
-            </button>
-          </div>
-        </div>
+        <MobileSwiperNavigation
+          currentIndex={activeIndex - 1}
+          totalSlides={data.length}
+          onPrev={handlePrev}
+          onNext={handleNext}
+          isPrevDisabled={activeIndex === 1}
+          isNextDisabled={activeIndex === data.length}
+          className="relative transform bg-white flex gap-10 items-center justify-center mt-9 px-1 py-5 mb-20"
+        />
       </div></>
   );
 }

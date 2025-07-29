@@ -5,6 +5,7 @@ import { useRef, useState } from 'react'
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MobileSwiperNavigation from "./MobileSwiperNavigation";
 
 const data = [
     {
@@ -104,19 +105,15 @@ export default function Testimonials() {
                     </div>
                 ))}
             </Slider>
-            <div className="relative transform bg-white flex gap-10 items-center justify-around md:justify-end mt-9 px-1 py-5">
-                <div className="h-full flex items-center justify-center">
-                    <button className="focus:outline-none  cursor-pointer" onClick={handlePrev}>
-                        <Image src="/assets/icons/arrow-right.svg" alt="Previous" height={20} width={19} className="transform rotate-180" />
-                    </button>
-                </div>
-                <div className="flex gap-2 items-center">{activeIndex + 1} <div className="h-0.5 w-8 bg-[#D9D9D9]" /> {data.length}</div>
-                <div className="h-full flex items-center justify-center">
-                    <button className="focus:outline-none cursor-pointer" onClick={handleNext}>
-                        <Image src="/assets/icons/arrow-right.svg" alt="Next" height={20} width={19} className="" />
-                    </button>
-                </div>
-            </div>
+            <MobileSwiperNavigation
+              currentIndex={activeIndex}
+              totalSlides={data.length}
+              onPrev={handlePrev}
+              onNext={handleNext}
+              isPrevDisabled={false}
+              isNextDisabled={false}
+              className="relative transform bg-white flex gap-10 items-center justify-around md:justify-end mt-9 px-1 py-5"
+            />
         </div>
     )
 }

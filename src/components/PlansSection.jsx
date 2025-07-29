@@ -9,10 +9,12 @@ import "slick-carousel/slick/slick-theme.css";
 import Link from "next/link";
 import { AnimatedSection } from "./animations";
 import ScheduleVisitModal from './ScheduleVisitModal';
+import MobileSwiperNavigation from './MobileSwiperNavigation';
 
 export default function PlansSection() {
     const [activeIndex, setActiveIndex] = useState(0);
     const [isModalOpen, setIsModalOpen] = useState(false);
+    const [openInfoIndex, setOpenInfoIndex] = useState(null);
     const swiperRef = useRef(null);
 
     // Card data
@@ -59,6 +61,10 @@ export default function PlansSection() {
       setIsModalOpen(true);
     };
 
+    const handleInfoClick = (index) => {
+      setOpenInfoIndex(openInfoIndex === index ? null : index);
+    };
+
     // Arrow states for mobile
     const mobileIndex = Math.ceil(activeIndex);
     const isMobilePrevDisabled = mobileIndex === 0;
@@ -85,18 +91,27 @@ export default function PlansSection() {
               <div key={idx} className={`w-full flex flex-col relative pl-[16px]`}>
                 <div className={`absolute ${idx === cards.length - 1 ? 'right-6' : 'right-2'} top-2 cursor-pointer flex flex-row items-center rounded-xl bg-black/20`}>
                   <div className="overflow-hidden">
-                    <div className="text-[12px] text-white whitespace-nowrap opacity-0 max-w-0 px-2 opacity-100 max-w-[100px] translate-x-0 transition-all duration-300 ease-in-out">
+                    <div className={`text-[12px] text-white whitespace-nowrap transition-all duration-300 ease-in-out ${
+                      openInfoIndex === idx ? 'opacity-100 max-w-[100px] translate-x-0 px-2' : 'opacity-0 max-w-0 translate-x-2'
+                    }`}>
                       {card.imgtype}
                     </div>
                   </div>
-                  <Image src="/assets/info.svg" alt="info" width={20} height={20} className="" />
+                  <Image 
+                    src="/assets/info.svg" 
+                    alt="info" 
+                    width={20} 
+                    height={20} 
+                    className="" 
+                    onClick={() => handleInfoClick(idx)}
+                  />
                 </div>
                 <Image
                   src={card.img}
                   alt={card.title}
                   width={392}
                   height={240}
-                  className="object-cover w-full rounded-md h-[240px]"
+                  className="object-cover w-full  h-[240px]"
                 />
                 <div className="bg-white p-[20px] mx-[20px] flex flex-col !mt-[-20px] relative">
                   <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">{card.title}</h1>
@@ -127,27 +142,15 @@ export default function PlansSection() {
             ))}
           </Slider>
           {/* Mobile Arrows and Pagination */}
-          <div className="flex mt-[44px] z-11 bg-white items-center justify-around px-1 py-5 w-full">
-            <div className="h-full flex items-center justify-center">
-              <button
-                className={`focus:outline-none cursor-pointer ${isMobilePrevDisabled ? 'opacity-30' : ''}`}
-                onClick={handlePrev}
-                disabled={isMobilePrevDisabled}
-              >
-                <Image src="/assets/arrow-main.svg" alt="Previous" height={20} width={19} className="transform rotate-180" />
-              </button>
-            </div>
-            <div className="flex gap-2 items-center font-[700] text-black">{mobileIndex + 1} <div className="h-0.5 w-8 bg-[#D9D9D9]" /><div className=' text-black/30'>{cards.length}</div></div>
-            <div className="h-full flex items-center justify-center">
-              <button
-                className={`focus:outline-none cursor-pointer ${isMobileNextDisabled ? 'opacity-30' : ''}`}
-                onClick={handleNext}
-                disabled={isMobileNextDisabled}
-              >
-                <Image src="/assets/arrow-main.svg" alt="Next" height={20} width={19} className="" />
-              </button>
-            </div>
-          </div>
+          <MobileSwiperNavigation
+            currentIndex={mobileIndex}
+            totalSlides={cards.length}
+            onPrev={handlePrev}
+            onNext={handleNext}
+            isPrevDisabled={isMobilePrevDisabled}
+            isNextDisabled={isMobileNextDisabled}
+            className="mt-[44px]"
+          />
         </div>
         {/* Desktop Cards */}
         <div className="hidden md:flex w-full flex-row gap-[32px]">
@@ -166,7 +169,7 @@ export default function PlansSection() {
               alt="serenity"
               width={392}
               height={240}
-              className="object-cover w-full rounded-md h-[240px]"
+              className="object-cover w-full  h-[240px]"
             />
             <div className="bg-white p-[28px] mx-[20px] flex flex-col mt-[-20px]">
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Serenity</h1>
@@ -209,7 +212,7 @@ export default function PlansSection() {
               alt="serenity"
               width={392}
               height={240}
-              className="object-cover w-full rounded-md h-[240px]"
+              className="object-cover w-full  h-[240px]"
             />
             <div className="bg-white p-[28px] mx-[20px] flex flex-col mt-[-20px]">
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Suite</h1>
@@ -252,7 +255,7 @@ export default function PlansSection() {
               alt="serenity"
               width={392}
               height={240}
-              className="object-cover w-full rounded-md h-[240px]"
+              className="object-cover w-full  h-[240px]"
             />
             <div className="bg-white p-[28px] mx-[20px] flex flex-col mt-[-20px]">
               <h1 className="text-[24px] leading-[28px] font-[700] font-satoshi pb-[10px]">Sangam Signature</h1>

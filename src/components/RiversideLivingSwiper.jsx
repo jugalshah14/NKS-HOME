@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform, easeInOut } from "framer-motion";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
+import MobileSwiperNavigation from "./MobileSwiperNavigation";
 
 const data = [
   {
@@ -26,8 +27,8 @@ const data = [
 
 const settings = {
   className: "riverside-swiper center",
-  infinite: true,
-  slidesToShow: 1.05,
+  infinite: false,
+  slidesToShow: 1,
   speed: 600,
   dots: false,
   arrows: false,
@@ -42,24 +43,28 @@ export default function RiversideLivingSwiper() {
 
   // State for mobile slider navigation
   const [mobileIndex, setMobileIndex] = useState(0);
-  const isMobilePrevDisabled = mobileIndex === 0;
-  const isMobileNextDisabled = mobileIndex === data.length - 1;
-
   // Handler to go to previous slide in the mobile view
   const handlePrev = () => {
-    if (mobileIndex > 0) {
-      setMobileIndex(mobileIndex - 1);
-      sliderRef.current.slickPrev(); // Navigate using slickPrev
+    if (sliderRef.current) {
+      sliderRef.current.slickPrev();
     }
   };
 
   // Handler to go to next slide in the mobile view
   const handleNext = () => {
-    if (mobileIndex < data.length - 1) {
-      setMobileIndex(mobileIndex + 1);
-      sliderRef.current.slickNext(); // Navigate using slickNext
+    if (sliderRef.current) {
+      sliderRef.current.slickNext();
     }
   };
+
+  // Handle slider change events to sync state
+  const handleBeforeChange = (oldIndex, newIndex) => {
+    setMobileIndex(newIndex);
+  };
+
+  // Calculate if buttons should be disabled based on current index
+  const isMobilePrevDisabled = mobileIndex === 0;
+  const isMobileNextDisabled = mobileIndex === data.length - 1;
 
   useEffect(() => {
     const calculateTranslateWidth = () => {
@@ -107,7 +112,7 @@ export default function RiversideLivingSwiper() {
         <div className="plans_slider_backdrop z-1 h-[100%] w-[100%] absolute top-0 left-0" />
         <Image src={slide.src} alt="slide-0" fill className="object-cover" />
       </div>
-      <div className="relative h-[140px] top-[-30px] left-7 md:left-0 w-[90%] md:w-[80%] p-4.5 md:p-7 bg-[#FFFFFFB2] z-1 backdrop-filter backdrop-blur-[50px] bg-opacity-80 bg-clip-padding">
+      <div className="relative h-[140px] top-[-30px] left-4 md:left-0 w-[90%] md:w-[80%] p-4.5 md:p-7 bg-[#FFFFFFB2] z-1 backdrop-filter backdrop-blur-[50px] bg-opacity-80 bg-clip-padding">
         {slide.title}
       </div>
     </div>
@@ -130,36 +135,23 @@ export default function RiversideLivingSwiper() {
 
       {/* Mobile Slider */}
       <div className="md:hidden pt-10 px-4 overflow-hidden">
-        <Slider ref={sliderRef} {...settings}>
+        <Slider 
+          ref={sliderRef} 
+          {...settings}
+          beforeChange={handleBeforeChange}
+        >
           {data.map(renderCard)}
         </Slider>
 
         {/* Mobile Navigation */}
-        <div className="flex z-11 bg-white items-center justify-around px-1 py-5 w-full">
-          <div className="h-full flex items-center justify-center">
-            <button
-              className={`focus:outline-none cursor-pointer ${isMobilePrevDisabled ? 'opacity-30' : ''}`}
-              onClick={handlePrev}
-              disabled={isMobilePrevDisabled}
-            >
-              <Image src="/assets/arrow-main.svg" alt="Previous" height={20} width={19} className="transform rotate-180" />
-            </button>
-          </div>
-          <div className="flex gap-2 items-center font-[700] text-black">
-            {mobileIndex + 1} 
-            <div className="h-0.5 w-8 bg-[#D9D9D9]" />
-            <div className=' text-black/30'>{data.length}</div>
-          </div>
-          <div className="h-full flex items-center justify-center">
-            <button
-              className={`focus:outline-none cursor-pointer ${isMobileNextDisabled ? 'opacity-30' : ''}`}
-              onClick={handleNext}
-              disabled={isMobileNextDisabled}
-            >
-              <Image src="/assets/arrow-main.svg" alt="Next" height={20} width={19} className="" />
-            </button>
-          </div>
-        </div>
+        <MobileSwiperNavigation
+          currentIndex={mobileIndex}
+          totalSlides={data.length}
+          onPrev={handlePrev}
+          onNext={handleNext}
+          isPrevDisabled={isMobilePrevDisabled}
+          isNextDisabled={isMobileNextDisabled}
+        />
       </div>
     </div>
   );

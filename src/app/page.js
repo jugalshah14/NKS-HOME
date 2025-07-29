@@ -86,11 +86,6 @@ export default function Home () {
         <div className="md:hidden hero-section-bg h-[100%] w-[100%] top-0 left-0" />
         <div className="absolute inset-0 flex flex-col justify-center">
           <div className="container mx-auto">
-            <SlideUp delay={0.2}>
-              <p className="block md:hidden text-center text-[#F2F2F2] font-[500] text-[14px] leading-8 uppercase">
-                have you ever imagined
-              </p>
-            </SlideUp>
             <SlideUp delay={0.4}>
               <h1 className="max-md:px-9 max-md:text-center hero-section-title text-white leading-13 text-[48px] md:text-[100px] font-[400] md:leading-[100px] md:max-w-[635px]">
                 Affordable Luxury by the Riverside
@@ -203,7 +198,7 @@ export default function Home () {
             <SlideUp delay={0.4}>
               <h2 className="project-overview-title max-md:!text-[36px] max-md:!leading-11 max-md:font-[400] text-center">
                 Project
-                <span> overview</span>
+                <span className="orange-color"> Overview</span>
               </h2>
             </SlideUp>
           </div>
@@ -249,7 +244,7 @@ export default function Home () {
 
           <SlideUp
             delay={0.6}
-            className="order-4 md:order-3 flex flex-col items-center"
+            className="order-3 flex flex-col items-center"
           >
             <div className="flex justify-center items-center h-[68px] w-[68px] mb-4">
               <Image
@@ -269,7 +264,7 @@ export default function Home () {
 
           <SlideUp
             delay={0.8}
-            className="order-3 md:order-4 flex flex-col items-center"
+            className="order-4 flex flex-col items-center"
           >
             <div className="flex justify-center items-center h-[68px] w-[68px] mb-4">
               <Image
@@ -365,7 +360,7 @@ export default function Home () {
                     <h2 className="max-w-[600px] w-[100%] lg:w-[100%] project-overview-title !font-[300] text-center pb-[48px] pt-[60px] md:pt-0">
                       The perfect sangam of{" "}
                       <span className="orange-color">life </span>
-                      and <span className="orange-color">lifestyle</span>.
+                      and <span className="orange-color">lifestyle</span>
                     </h2>
                   </SlideUp>
                 </div>
@@ -413,7 +408,7 @@ export default function Home () {
                 </p>
               </div>
               <p className="enough-reasons-text block md:hidden font-[400] text-[24px] leading-8 w-[85%] text-center mb-8">
-                Enough reasons to live by Ganges?
+              Take the 1st step to transforming your life
               </p>
                 <button onClick={handleScheduleVisit} className="md:min-h-[4rem] min-h-[3.5rem] h-full relative md:-top-7 bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
                   <div className="px-6 py-3 mr-20">
@@ -495,8 +490,8 @@ export default function Home () {
                   <div className="max-md:col-span-2">
                     <SlideUp delay={0.4}>
                       <h2 className="project-overview-title !text-[36px] max-md:!leading-11 max-md:font-[400] max-md:text-center md:!text-[56px]">
-                        Why <br className="max-md:hidden" />
-                        <span className="orange-color">Serampore?</span>
+                        Why 
+                        <span className="orange-color"> Serampore?</span>
                       </h2>
                     </SlideUp>
                   </div>
