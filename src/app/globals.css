@@ -359,6 +359,9 @@ body::-webkit-scrollbar {
     letter-spacing: 0%;
     color: rgba(34, 37, 46, 1);
   }
+  .serampore-swiper .slick-slide {
+    margin: 0 15px;
+  }
 }
 
 @media (width >=80rem) and (width <=96rem) {
@@ -406,7 +409,7 @@ body::-webkit-scrollbar {
 }
 
 .serampore-swiper .slick-slide {
-  margin: 0 15px;
+  margin: 0 30px;
 }
 
 .serampore-swiper .slick-list {

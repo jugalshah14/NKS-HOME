@@ -241,7 +241,7 @@ export default function Home () {
                 alt="Clubhouse"
                 className="" />
             </div>
-            <h3 className="block md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
+            <h3 className="block max-md:text-center md:text-[40px] text-[28px] font-satoshi font-[400] leading-[34px] md:leading-[54px] text-[#22252e] mb-1">
               56,000 sq.ft.
             </h3>
             <p className="block md:text-[20px] text-[16px]  font-satoshi font-[400] leading-[27px] md:leading-[28px] text-[#22252e] text-center">{`Hooghly's largest Residential Clubhouse`}</p>
@@ -300,7 +300,7 @@ export default function Home () {
           {/* Amenities */}
           <section className="container  mx-auto mt-5">
             <div className="container mx-auto !w-[100%] relative md:mb-16">
-              <div className="flex flex-col justify-center items-center pb-5">
+              <div className="flex flex-col justify-center items-center pb-5 max-md:px-5">
                 <SlideUp delay={0.4}>
                   <h2 className="w-full md:mt-10 text-center text-black md:text-[56px] text-[36px] font-cormorant md:leading-[72px] leading-[44px] font-[400]">
                     Elevate to{" "}
@@ -357,7 +357,7 @@ export default function Home () {
           <div className="bg-[#F5F8FA]">
             <section className="container  mx-auto">
               <div className="relative md:py-[80px]">
-                <div className="flex text-center flex-col justify-center items-center">
+                <div className="flex text-center flex-col justify-center items-center max-md:px-5">
                   <SlideUp
                     delay={0.4}
                     className="flex justify-center items-center"
@@ -540,7 +540,7 @@ export default function Home () {
                           </Link>
                         </SlideUp>
                       </div>
-                      <div className="max-md:mt-5 max-md:col-span-2 md:p-2 flex max-md:px-7 gap-10 items-center">
+                      <div className="max-md:mt-5 max-md:col-span-2 md:p-2 flex max-md:px-7 gap-10 items-center max-md:pb-10">
                         <div>
                           <div className="space-y-11">
                             <SlideIn
