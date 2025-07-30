@@ -167,14 +167,6 @@ export default function Home () {
                 </div>
               </div>
 
-              <div>
-                <textarea
-                  rows="4"
-                  placeholder="Message"
-                  class="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
-                ></textarea>
-              </div>
-
               <button
                 type="submit"
                 class="cursor-pointer w-full bg-[#144D78] text-white rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center"
@@ -422,9 +414,12 @@ export default function Home () {
           </section>
         </Element>
 
+              {/* Plans */}
+      <SafetySecuritySection />
+
         <Element name="section-Ganga">
           {/* Ganga Video */}
-          <div className="md:mt-10">
+          <div className="">
             <GangaVideoSection />
 
             <div className="hidden md:block relative p-5 overflow-hidden">
@@ -649,8 +644,6 @@ export default function Home () {
         </AnimatedSection>
       </section>
 
-      {/* Plans */}
-      <SafetySecuritySection />
     </main>
       <ScheduleVisitModal
         isOpen={isModalOpen}

@@ -198,15 +198,6 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
-              <div>
-                <textarea
-                  {...register("message")}
-                  rows="4"
-                  placeholder="Message"
-                  className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
-                ></textarea>
-              </div>
-
               <button
                 type="submit"
                 className="cursor-pointer w-full bg-[#144D78] text-white py-3 md:py-4 px-6 md:px-9 rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center"
