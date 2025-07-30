@@ -78,7 +78,7 @@ export default function Home () {
           layout="fill"
           priority />
         <Image
-          className="md:hidden inset-0 w-full h-full object-cover"
+          className="md:hidden inset-0 w-full h-full object-fill"
           src="/assets/Riverviewmobile.png"
           alt="Riverside Luxury Residences"
           layout="fill"

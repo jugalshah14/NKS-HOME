@@ -53,7 +53,7 @@ const Header = () => {
         }`}
       >
         <div className="container mx-auto py-4 md:grid md:grid-cols-2 md:items-center flex justify-between items-center max-md:px-5 max-md:py-2 max-md:gap-3">
-          <div className="md:h-[48px] md:w-[260px] w-[95px] h-[44px] relative">
+          <div className="md:h-[48px] md:w-[260px] w-[156px] h-[40px] relative">
             {" "}
             <Link href="/">
               <Image
