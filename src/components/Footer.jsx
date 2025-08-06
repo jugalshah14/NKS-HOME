@@ -38,7 +38,7 @@ export default function Footer() {
       Leads: [
         {
           FName: data.name,
-          LName: "K. Thakur",
+          LName: data.name,
           Phone: data.phoneNumber,
           City: "Kolkata",
           project: "NEW KOLKATA - SANGAM",
@@ -46,7 +46,7 @@ export default function Footer() {
           Campaign: "G_Generic_WB_08-Feb-2023",
           Source: "google",
           Medium: "s",
-          Content: "647759937277",
+          Content: "",
           Term: data.requirements || "",
         },
       ],

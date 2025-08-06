@@ -28,26 +28,9 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const modalRef = useRef(null); 
-  const submitForm = async (payload) => {
-    console.log('Sending payload to API:', payload);
-
-    // Future API call example:
-    // try {
-    //   const response = await fetch('/api/submit', {
-    //     method: 'POST',
-    //     headers: {
-    //       'Content-Type': 'application/json',
-    //     },
-    //     body: JSON.stringify(payload),
-    //   });
-
-    //   const result = await response.json();
-    //   console.log('API Response:', result);
-    // } catch (error) {
-    //   console.error('Error submitting form:', error);
-    // }
-  };
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState(null);
+  const modalRef = useRef(null);
 
   useEffect(() => {
     if (isOpen) {
@@ -74,10 +57,62 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
 
   if (!isOpen) return null;
 
-  const onSubmit = (data) => {
-    console.log("Form Payload:", data);
-    setIsSubmitted(true);
-    reset();
+  const onSubmit = async (data) => {
+    const requestData = {
+      Leads: [
+        {
+          FName: data.name,
+          LName: data.name,
+          Phone: data.phone,
+          City: "Kolkata",
+          project: "NEW KOLKATA - SANGAM",
+          Email: data.email,
+          Campaign: "G_Generic_WB_08-Feb-2023",
+          Source: "google",
+          Medium: "s",
+          Content: "",
+          Choice__c: data.bhk,
+          gcBudget__c: data.budget,
+          Term: `BHK: ${data.bhk}, Budget: ${data.budget}${data.message ? `, Message: ${data.message}` : ''}`,
+        },
+      ],
+    };
+    console.log('🚀 ~ onSubmit ~ requestData:', requestData);
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const response = await fetch(
+        "https://alcoverealty.my.salesforce-sites.com/websitehook/services/apexrest/hookinlandingPage",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(requestData),
+        }
+      );
+
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+
+      await response.json();
+      setSubmitStatus({
+        success: true,
+        message: "Thank you! Your site visit request has been submitted successfully.",
+      });
+      setIsSubmitted(true);
+      reset();
+    } catch (error) {
+      console.error("Error submitting form:", error);
+      setSubmitStatus({
+        success: false,
+        message: "Something went wrong. Please try again later.",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleBackdropClick = (e) => {
@@ -111,6 +146,19 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
             </button>
 
             <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
+
+            {/* Status Message */}
+            {submitStatus && (
+              <div
+                className={`mb-6 p-4 rounded ${
+                  submitStatus.success
+                    ? "bg-green-100 text-green-800"
+                    : "bg-red-100 text-red-800"
+                }`}
+              >
+                {submitStatus.message}
+              </div>
+            )}
 
             <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -198,12 +246,24 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                 </div>
               </div>
 
+              {/* <div>
+                <textarea
+                  {...register("message")}
+                  rows="4"
+                  placeholder="Message"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-md outline-none"
+                ></textarea>
+              </div> */}
+
               <button
                 type="submit"
-                className="cursor-pointer w-full bg-[#144D78] text-white py-3 md:py-4 px-6 md:px-9 rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center"
+                disabled={isSubmitting}
+                className={`cursor-pointer w-full bg-[#144D78] text-white py-3 md:py-4 px-6 md:px-9 rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center ${
+                  isSubmitting ? "opacity-70 cursor-not-allowed" : ""
+                }`}
               >
-                <span className="text-left flex-grow text-[18px] md:text-[20px] font-[600]">
-                  Book A Site Visit
+                <span className="text-left flex-grow text-[1.125rem] md:text-[1.25rem] font-[600]">
+                  {isSubmitting ? "Submitting..." : "Book A Site Visit"}
                 </span>
                 <Image
                   src="/assets/form-arrow.svg"
