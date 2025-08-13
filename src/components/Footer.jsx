@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
+import { showSuccessToast } from "./CustomToast";
 
 // Define form schema with validation
 const formSchema = z.object({
@@ -71,17 +72,11 @@ export default function Footer() {
       }
 
       await response.json();
-      setSubmitStatus({
-        success: true,
-        message: "Thank you! Your message has been sent successfully.",
-      });
+      showSuccessToast();
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      setSubmitStatus({
-        success: false,
-        message: "Something went wrong. Please try again later.",
-      });
+      toast.error("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
@@ -156,18 +151,7 @@ export default function Footer() {
             <h2 className="block lg:hidden project-overview-title font-[400] text-[36px] !text-[#22252E] mb-8 text-center">
               <span className="orange-color">Contact </span>Us
             </h2>
-            {/* Status Message */}
-            {submitStatus && (
-              <div
-                className={`mb-6 p-4 rounded ${
-                  submitStatus.success
-                    ? "bg-green-100 text-green-800"
-                    : "bg-red-100 text-red-800"
-                }`}
-              >
-                {submitStatus.message}
-              </div>
-            )}
+
 
             <form onSubmit={handleSubmit(onSubmit)} className="flex flex-col">
               <div className="grid grid-cols-2 gap-4 md:gap-7">

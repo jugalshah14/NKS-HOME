@@ -24,6 +24,8 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
+import { showSuccessToast } from "@/components/CustomToast";
+import toast from "react-hot-toast";
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -125,7 +127,6 @@ export default function Home () {
         },
       ],
     };
-    console.log('🚀 ~ onSubmit ~ requestData:', requestData);
     setIsSubmitting(true);
     setSubmitStatus(null);
 
@@ -146,25 +147,20 @@ export default function Home () {
       }
 
       await response.json();
-      setSubmitStatus({
-        success: true,
-        message: "Thank you! Your site visit request has been submitted successfully.",
-      });
+      showSuccessToast();
       setIsSubmitted(true);
       reset();
     } catch (error) {
       console.error("Error submitting form:", error);
-      setSubmitStatus({
-        success: false,
-        message: "Something went wrong. Please try again later.",
-      });
+      toast.error("Something went wrong. Please try again later.");
     } finally {
       setIsSubmitting(false);
     }
   };
 
   return (
-    <><main>
+    <>
+      <main>
       {/* Hero Section */}
       <section id="Hero_Section" className="relative h-screen">
         <Image
@@ -211,18 +207,7 @@ export default function Home () {
               <>
                 <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
 
-                {/* Status Message */}
-                {submitStatus && (
-                  <div
-                    className={`mb-6 p-4 rounded ${
-                      submitStatus.success
-                        ? "bg-green-100 text-green-800"
-                        : "bg-red-100 text-red-800"
-                    }`}
-                  >
-                    {submitStatus.message}
-                  </div>
-                )}
+
 
                 <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -811,6 +796,7 @@ export default function Home () {
     </main>
       <ScheduleVisitModal
         isOpen={isModalOpen}
-        onClose={() => setIsModalOpen(false)} /></>
+        onClose={() => setIsModalOpen(false)} />
+    </>
   );
 }
