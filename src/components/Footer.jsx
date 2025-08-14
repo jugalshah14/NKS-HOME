@@ -7,7 +7,8 @@ import Link from "next/link";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
 import * as z from "zod";
-import { showSuccessToast } from "./CustomToast";
+import { useRouter } from "next/navigation";
+
 
 // Define form schema with validation
 const formSchema = z.object({
@@ -22,6 +23,7 @@ const formSchema = z.object({
 
 export default function Footer() {
   const pathname = usePathname();
+  const router = useRouter();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -72,11 +74,12 @@ export default function Footer() {
       }
 
       await response.json();
-      showSuccessToast();
+      setSubmitStatus("success");
       reset();
+      router.push('/thank-you');
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again later.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -259,9 +262,16 @@ export default function Footer() {
                 </div>
                 <span className="px-6 flex items-center justify-center md:min-h-[4rem] min-h-[3.5rem] h-full ml-auto text-orange-500 bg-[#002F52] text-lg">
                   ↗
-                </span>
-              </button>
-            </form>
+                                 </span>
+               </button>
+             </form>
+             
+             {/* Error Message Display */}
+             {submitStatus === "error" && (
+               <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                 Something went wrong. Please try again later.
+               </div>
+             )}
           </div>
         </div>
 

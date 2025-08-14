@@ -4,7 +4,8 @@ import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { showSuccessToast } from "./CustomToast";
+import { useRouter } from "next/navigation";
+
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -19,6 +20,7 @@ const formSchema = z.object({
 });
 
 const ScheduleVisitModal = ({ isOpen, onClose }) => {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -28,7 +30,6 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
     resolver: zodResolver(formSchema),
   });
 
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
   const modalRef = useRef(null);
@@ -36,7 +37,6 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-      setIsSubmitted(false);
     } else {
       document.body.style.overflow = "unset";
     }
@@ -44,17 +44,6 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
       document.body.style.overflow = "unset";
     };
   }, [isOpen]);
-
-  useEffect(() => {
-    let timer;
-    if (isSubmitted) {
-      timer = setTimeout(() => {
-        setIsSubmitted(false);
-        onClose();
-      }, 8000);
-    }
-    return () => clearTimeout(timer);
-  }, [isSubmitted, onClose]);
 
   if (!isOpen) return null;
 
@@ -98,12 +87,13 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
       }
 
       await response.json();
-      showSuccessToast();
-      setIsSubmitted(true);
+      setSubmitStatus("success");
       reset();
+      onClose();
+      router.push('/thank-you');
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again later.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -120,26 +110,24 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
       className="fixed inset-0 z-999999 flex items-center justify-center bg-black/10"
       onClick={handleBackdropClick}
     >
-      <div
-        ref={modalRef}
-        className="bg-white rounded-lg p-8 w-full max-w-2xl mx-4 relative shadow-xl"
-      >
-        {!isSubmitted ? (
-          <>
-            <button
-              onClick={onClose}
-              className="absolute top-0 right-0 text-white bg-[#144D78] p-2 rounded-tr-lg hover:bg-[#002F52]"
-            >
-              <Image
-                src="/assets/x.svg"
-                alt="Close"
-                width={24}
-                height={24}
-                className="hover:scale-110 transition-transform"
-              />
-            </button>
+             <div
+         ref={modalRef}
+         className="bg-white rounded-lg p-8 w-full max-w-2xl mx-4 relative shadow-xl"
+       >
+         <button
+           onClick={onClose}
+           className="absolute top-0 right-0 text-white bg-[#144D78] p-2 rounded-tr-lg hover:bg-[#002F52]"
+         >
+           <Image
+             src="/assets/x.svg"
+             alt="Close"
+             width={24}
+             height={24}
+             className="hover:scale-110 transition-transform"
+           />
+         </button>
 
-            <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
+         <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
 
 
 
@@ -254,27 +242,15 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                   width={20}
                   height={20}
                 />
-              </button>
-            </form>
-          </>
-        ) : (
-          <div className="flex flex-col items-center justify-center py-10 animate-fade-in">
-            <Image
-              src="/assets/tick.png"
-              alt="Success"
-              width={80}
-              height={80}
-              className="mb-4"
-            />
-            <h2 className="text-2xl md:text-4xl font-bold mb-2 text-[#22252E]">
-              Thank you!
-            </h2>
-            <p className="text-center text-gray-700 text-lg md:text-xl max-w-[400px]">
-              We have received your request, our team will contact you within
-              1-2 business days.
-            </p>
-          </div>
-        )}
+                             </button>
+             </form>
+             
+             {/* Error Message Display */}
+             {submitStatus === "error" && (
+               <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                 Something went wrong. Please try again later.
+               </div>
+             )}
       </div>
     </div>
   );

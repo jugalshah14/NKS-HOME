@@ -4,7 +4,6 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import localFont from "next/font/local";
 import React from "react";
-import { Toaster } from "react-hot-toast";
 
 const cormorant = Cormorant_Garamond({
   weight: ["400", "500", "700"],
@@ -76,45 +75,6 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Footer />
-          <Toaster
-            position="top-center"
-            containerStyle={{
-              top: '110px',
-            }}
-            toastOptions={{
-              duration: 5000,
-              style: {
-                background: 'white !important',
-                backgroundColor: 'white !important',
-                color: '#22252E',
-                borderRadius: '12px',
-                boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                padding: '24px',
-                fontSize: '14px',
-                minWidth: '450px',
-                maxWidth: '550px',
-                border: '1px solid rgba(0, 0, 0, 0.05)',
-              },
-              success: {
-                iconTheme: {
-                  primary: '#10B981',
-                  secondary: '#fff',
-                },
-                style: {
-                  background: 'white !important',
-                  backgroundColor: 'white !important',
-                  color: '#22252E',
-                  borderRadius: '12px',
-                  boxShadow: '0 8px 32px rgba(0, 0, 0, 0.12)',
-                  padding: '24px',
-                  fontSize: '14px',
-                  minWidth: '450px',
-                  maxWidth: '550px',
-                  border: '1px solid rgba(0, 0, 0, 0.05)',
-                },
-              },
-            }}
-          />
         </React.Suspense>
       </body>
     </html>

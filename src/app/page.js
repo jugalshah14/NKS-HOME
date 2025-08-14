@@ -24,8 +24,8 @@ import { useState, useEffect } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { showSuccessToast } from "@/components/CustomToast";
-import toast from "react-hot-toast";
+import { useRouter } from "next/navigation";
+
 
 const formSchema = z.object({
   name: z.string().min(2, { message: "Name must be at least 2 characters" }),
@@ -78,8 +78,8 @@ const seramporeData = [
 ];
 
 export default function Home () {
+  const router = useRouter();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
 
@@ -97,15 +97,7 @@ export default function Home () {
     setIsModalOpen(true);
   };
 
-  useEffect(() => {
-    let timer;
-    if (isSubmitted) {
-      timer = setTimeout(() => {
-        setIsSubmitted(false);
-      }, 8000);
-    }
-    return () => clearTimeout(timer);
-  }, [isSubmitted]);
+
 
   const onSubmit = async (data) => {
     const requestData = {
@@ -147,12 +139,12 @@ export default function Home () {
       }
 
       await response.json();
-      showSuccessToast();
-      setIsSubmitted(true);
+      setSubmitStatus("success");
       reset();
+      router.push('/thank-you');
     } catch (error) {
       console.error("Error submitting form:", error);
-      toast.error("Something went wrong. Please try again later.");
+      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -203,9 +195,7 @@ export default function Home () {
             visit to the site
           </div>
           <div className="bg-white p-8 w-full max-w-2xl md:mx-4 relative box-shadow">
-            {!isSubmitted ? (
-              <>
-                <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
+            <h2 className="text-2xl font-bold mb-6 text-[#22252E]">Write to us</h2>
 
 
 
@@ -309,25 +299,13 @@ export default function Home () {
                     </span>
                   </button>
                 </form>
-              </>
-            ) : (
-              <div className="flex flex-col items-center justify-center py-10 animate-fade-in">
-                <Image
-                  src="/assets/tick.png"
-                  alt="Success"
-                  width={80}
-                  height={80}
-                  className="mb-4"
-                />
-                <h2 className="text-2xl md:text-4xl font-bold mb-2 text-[#22252E]">
-                  Thank you!
-                </h2>
-                <p className="text-center text-gray-700 text-lg md:text-xl max-w-[400px]">
-                  We have received your request, our team will contact you within
-                  1-2 business days.
-                </p>
-              </div>
-            )}
+                
+                {/* Error Message Display */}
+                {submitStatus === "error" && (
+                  <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                    Something went wrong. Please try again later.
+                  </div>
+                )}
           </div>
         </div>
       </div>
