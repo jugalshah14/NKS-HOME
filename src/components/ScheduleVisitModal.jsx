@@ -14,8 +14,8 @@ const formSchema = z.object({
     .string()
     .min(10, { message: "Phone number must be at least 10 digits" })
     .max(15, { message: "Phone number must be no more than 15 digits" }),
-  bhk: z.string().min(1, { message: "Please select a choice" }),
-  budget: z.string().min(1, { message: "Please select a budget" }),
+  bhk: z.string().optional(),
+  budget: z.string().optional(),
   message: z.string().optional(),
 });
 
@@ -48,52 +48,47 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
   if (!isOpen) return null;
 
   const onSubmit = async (data) => {
-    const requestData = {
-      Leads: [
-        {
-          FName: data.name,
-          LName: data.name,
-          Phone: data.phone,
-          City: "Kolkata",
-          project: "NEW KOLKATA - SANGAM",
-          Email: data.email,
-          Campaign: "G_Generic_WB_08-Feb-2023",
-          Source: "google",
-          Medium: "s",
-          Content: "",
-          Choice__c: data.bhk,
-          gcBudget__c: data.budget,
-          Term: `BHK: ${data.bhk}, Budget: ${data.budget}${data.message ? `, Message: ${data.message}` : ''}`,
-        },
-      ],
-    };
+    console.log("Form data being submitted:", data);
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      const response = await fetch(
-        "https://alcoverealty.my.salesforce-sites.com/websitehook/services/apexrest/hookinlandingPage",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        }
-      );
+      // Create AbortController for timeout
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 15000); // 15 second timeout
+
+      console.log("Making API call to /api/submit-lead");
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+        signal: controller.signal,
+      });
+
+      clearTimeout(timeoutId);
+      console.log("Response status:", response.status);
+      
+      const result = await response.json();
+      console.log("API response:", result);
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(result.error || 'Failed to submit form');
       }
 
-      await response.json();
       setSubmitStatus("success");
       reset();
       onClose();
       router.push('/thank-you');
     } catch (error) {
       console.error("Error submitting form:", error);
-      setSubmitStatus("error");
+      
+      if (error.name === 'AbortError') {
+        setSubmitStatus("timeout");
+      } else {
+        setSubmitStatus("error");
+      }
     } finally {
       setIsSubmitting(false);
     }
@@ -177,7 +172,7 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                     {...register("bhk")}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md appearance-none pr-10 outline-none"
                   >
-                    <option value="">My Choice*</option>
+                    <option value="">My Choice</option>
                     <option value="2BHK">2 BHK</option>
                     <option value="3BHK">3 BHK</option>
                     <option value="4BHK">4 BHK</option>
@@ -199,7 +194,7 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                     {...register("budget")}
                     className="w-full px-4 py-3 border border-gray-300 rounded-md appearance-none pr-10 outline-none"
                   >
-                    <option value="">My Budget*</option>
+                    <option value="">My Budget</option>
                     <option value="40-50">40-50 Lac</option>
                     <option value="50-60">50-60 Lac</option>
                     <option value="60-70">60-70 Lac</option>
@@ -245,12 +240,22 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                              </button>
              </form>
              
-             {/* Error Message Display */}
-             {submitStatus === "error" && (
-               <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-                 Something went wrong. Please try again later.
-               </div>
-             )}
+                           {/* Message Display */}
+              {submitStatus === "success" && (
+                <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
+                  Form submitted successfully! Redirecting...
+                </div>
+              )}
+              {submitStatus === "error" && (
+                <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
+                  Something went wrong. Please try again later.
+                </div>
+              )}
+              {submitStatus === "timeout" && (
+                <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded">
+                  Request is taking too long. Please try again.
+                </div>
+              )}
       </div>
     </div>
   );

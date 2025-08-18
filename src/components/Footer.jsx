@@ -37,43 +37,31 @@ export default function Footer() {
   });
 
   const onSubmit = async (data) => {
-    const requestData = {
-      Leads: [
-        {
-          FName: data.name,
-          LName: data.name,
-          Phone: data.phoneNumber,
-          City: "Kolkata",
-          project: "NEW KOLKATA - SANGAM",
-          Email: data.email,
-          Campaign: "G_Generic_WB_08-Feb-2023",
-          Source: "google",
-          Medium: "s",
-          Content: "",
-          Term: data.requirements || "",
-        },
-      ],
-    };
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      const response = await fetch(
-        "https://alcoverealty.my.salesforce-sites.com/websitehook/services/apexrest/hookinlandingPage",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        }
-      );
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: data.name,
+          email: data.email,
+          phone: data.phoneNumber,
+          bhk: '', // Footer form doesn't have BHK selection
+          budget: '', // Footer form doesn't have budget selection
+          message: data.requirements || '',
+        }),
+      });
+
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(result.error || 'Failed to submit form');
       }
 
-      await response.json();
       setSubmitStatus("success");
       reset();
       router.push('/thank-you');

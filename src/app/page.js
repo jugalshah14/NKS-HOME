@@ -100,45 +100,24 @@ export default function Home () {
 
 
   const onSubmit = async (data) => {
-    const requestData = {
-      Leads: [
-        {
-          FName: data.name,
-          LName: data.name,
-          Phone: data.phone,
-          City: "Kolkata",
-          project: "NEW KOLKATA - SANGAM",
-          Email: data.email,
-          Campaign: "G_Generic_WB_08-Feb-2023",
-          Source: "google",
-          Medium: "s",
-          Content: "",
-          Choice__c: data.bhk,
-          gcBudget__c: data.budget,
-          Term: `BHK: ${data.bhk}, Budget: ${data.budget}${data.message ? `, Message: ${data.message}` : ''}`,
-        },
-      ],
-    };
     setIsSubmitting(true);
     setSubmitStatus(null);
 
     try {
-      const response = await fetch(
-        "https://alcoverealty.my.salesforce-sites.com/websitehook/services/apexrest/hookinlandingPage",
-        {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(requestData),
-        }
-      );
+      const response = await fetch('/api/submit-lead', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      });
+
+      const result = await response.json();
 
       if (!response.ok) {
-        throw new Error("Network response was not ok");
+        throw new Error(result.error || 'Failed to submit form');
       }
 
-      await response.json();
       setSubmitStatus("success");
       reset();
       router.push('/thank-you');
