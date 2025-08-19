@@ -124,6 +124,7 @@ export default function PlansSection() {
                     <div className="flex items-center">
                       <p className="hidden md:inline text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black shadow-lg mr-2 blur-[6.5px]">{card.price}</p>
                       <button
+                        id="plans-mobile-know-price-button"
                         onClick={handleKnowPriceClick}
                         className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] underline"
                       >
@@ -182,6 +183,7 @@ export default function PlansSection() {
                 <div className="flex items-center">
                   <p className="hidden md:inline text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black shadow-lg mr-2 blur-[6.5px]">1234</p>
                   <button
+                    id="plans-desktop-serenity-know-price-button"
                     onClick={handleKnowPriceClick}
                     className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] underline"
                   >
@@ -225,6 +227,7 @@ export default function PlansSection() {
                 <div className="flex items-center">
                   <p className="hidden md:inline text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black shadow-lg mr-2 blur-[6.5px]">1234</p>
                   <button
+                    id="plans-desktop-suite-know-price-button"
                     onClick={handleKnowPriceClick}
                     className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] underline"
                   >
@@ -268,6 +271,7 @@ export default function PlansSection() {
                 <div className="flex items-center">
                   <p className="hidden md:inline text-[20px] md:text-[24px] font-satoshi font-[400] leading-6 md:leading-[33px] text-black shadow-lg mr-2 blur-[6.5px]">1234</p>
                   <button
+                    id="plans-desktop-signature-know-price-button"
                     onClick={handleKnowPriceClick}
                     className="cursor-pointer text-[14px] font-satoshi font-bold leading-[19px] text-[#134c78] underline"
                   >

@@ -30,6 +30,7 @@ const SafetySecuritySection = () => {
                 </SlideUp>
                 <SlideUp delay={0.6}>
                   <button
+                    id="safety-security-schedule-visit-desktop"
                     onClick={handleScheduleVisit}
                     className="hidden md:min-h-[4rem] min-h-[3.5rem] mt-10 relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium md:inline-flex items-center gap-2 overflow-hidden button-primary"
                   >
@@ -106,6 +107,7 @@ const SafetySecuritySection = () => {
         <SlideUp delay={0.8}>
           <div className="flex md:hidden justify-center relative -top-7">
             <button
+              id="safety-security-schedule-visit-mobile"
               onClick={handleScheduleVisit}
               className="inline-flex relative bg-[#144D78] hover:bg-blue-800 transition text-white font-medium md:hidden items-center gap-2 overflow-hidden button-primary"
             >

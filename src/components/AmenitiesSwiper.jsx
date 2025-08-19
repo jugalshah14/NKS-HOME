@@ -144,6 +144,7 @@ export default function AmenitiesSwiper() {
             <div className="relative max-w-[190px] border border-[rgba(0,0,0,0.2)] z-11 transform bg-[#FFFFFF33] backdrop-filter backdrop-blur-[14px] bg-opacity-80 bg-clip-padding flex items-center justify-around mt-9 px-1 py-5">
               <div className="h-full flex items-center justify-center">
                 <button
+                  id="amenities-swiper-prev-button"
                   className={`focus:outline-none cursor-pointer ${
                     isPrevDisabled ? "opacity-30" : ""
                   }`}
@@ -161,6 +162,7 @@ export default function AmenitiesSwiper() {
               </div>
               <div className="h-full flex items-center justify-center">
                 <button
+                  id="amenities-swiper-next-button"
                   className={`focus:outline-none cursor-pointer ${
                     isNextDisabled ? "opacity-30" : ""
                   }`}

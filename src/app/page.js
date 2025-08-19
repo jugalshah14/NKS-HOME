@@ -264,6 +264,7 @@ export default function Home () {
                   </div>
 
                   <button
+                    id="page-hero-submit-button"
                     type="submit"
                     disabled={isSubmitting}
                     className={`cursor-pointer w-full bg-[#144D78] text-white rounded-md hover:bg-[#002F52] transition-colors duration-300 font-medium flex items-center justify-center ${
@@ -508,7 +509,11 @@ export default function Home () {
               <p className="enough-reasons-text block md:hidden font-[400] text-[24px] leading-8 w-[85%] text-center mb-8">
               Take the 1st step to transforming your life
               </p>
-                <button onClick={handleScheduleVisit} className="md:min-h-[4rem] min-h-[3.5rem] h-full relative md:-top-7 bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
+                <button 
+                  id="page-hero-schedule-visit-button"
+                  onClick={handleScheduleVisit} 
+                  className="md:min-h-[4rem] min-h-[3.5rem] h-full relative md:-top-7 bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary"
+                >
                   <div className="px-6 py-3 mr-20">
                     <span>Schedule a Visit</span>
                   </div>
@@ -564,7 +569,10 @@ export default function Home () {
                           </p>
                         </SlideUp>
                         <SlideUp delay={0.8} className="w-full">
-                            <button onClick={handleScheduleVisit} className="w-full md:min-h-[4rem] min-h-[3.5rem] h-full relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
+                            <button 
+                              id="page-ganga-schedule-visit-button"
+                              onClick={handleScheduleVisit} 
+                              className="w-full md:min-h-[4rem] min-h-[3.5rem] h-full relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary">
                               <div className="px-6 py-3">
                                 <span>Schedule a Visit</span>
                               </div>
@@ -627,7 +635,9 @@ export default function Home () {
                         </SlideUp>
                         <SlideUp delay={0.6}>
                           <Link href="/location">
-                            <button className="hidden md:min-h-[4rem] min-h-[3.5rem] mt-10 relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium md:inline-flex items-center gap-2 overflow-hidden button-primary">
+                            <button 
+                              id="page-why-serampore-learn-more-button"
+                              className="hidden md:min-h-[4rem] min-h-[3.5rem] mt-10 relative bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium md:inline-flex items-center gap-2 overflow-hidden button-primary">
                               <div className="px-6 py-3 mr-20">Learn More</div>
                               <span className="px-6 flex items-center justify-center md:min-h-[4rem] min-h-[3.5rem] h-full ml-auto text-orange-500 bg-[#002F52] text-lg">
                                 ↗
@@ -719,6 +729,7 @@ export default function Home () {
               <SlideUp delay={0.8}>
                 <div className="flex md:hidden justify-center relative -top-7">
                   <button
+                    id="page-why-serampore-mobile-schedule-visit-button"
                     onClick={handleScheduleVisit}
                     className="md:min-h-[4rem] min-h-[3.5rem] h-full inline-flex relative bg-[#144D78] hover:bg-blue-800 transition text-white font-medium md:hidden items-center gap-2 overflow-hidden button-primary"
                   >

@@ -14,6 +14,7 @@ const MobileSwiperNavigation = ({
     <div className={`flex z-11 bg-white items-center justify-around px-1 py-5 w-full ${className}`}>
       <div className="h-full flex items-center justify-center">
         <button
+          id="mobile-swiper-prev-button"
           className={`focus:outline-none cursor-pointer ${isPrevDisabled ? 'opacity-30' : ''}`}
           onClick={onPrev}
           disabled={isPrevDisabled}
@@ -34,6 +35,7 @@ const MobileSwiperNavigation = ({
       </div>
       <div className="h-full flex items-center justify-center">
         <button
+          id="mobile-swiper-next-button"
           className={`focus:outline-none cursor-pointer ${isNextDisabled ? 'opacity-30' : ''}`}
           onClick={onNext}
           disabled={isNextDisabled}

@@ -116,6 +116,7 @@ const GangaVideoSection = () => {
             </h2>
           </div>
           <div
+            id="ganga-video-play-button"
             className="absolute backdrop-blur-[20px] bottom-[35px] z-10 right-8 bg-[#FFFFFF33] rounded-full w-[79px] h-[79px] flex flex-col items-center justify-center hover:bg-white/30 transition-all duration-300 cursor-pointer"
             aria-label="Play Video"
             onClick={toggleModal}
@@ -150,6 +151,7 @@ const GangaVideoSection = () => {
             <div className="honouring-lightbox-overlay-m h-[100%] w-[100%] absolute top-0 left-0" />
           </AnimatedSection>
           <div
+            id="ganga-video-play-button-m"
             className="absolute backdrop-blur-[20px] -bottom-6 z-100 right-8 bg-[#FFFFFF33] rounded-full w-[50px] h-[50px] flex flex-col items-center justify-center hover:bg-white/30 transition-all duration-300 cursor-pointer"
             aria-label="Play Video"
             onClick={toggleModal}
@@ -186,7 +188,11 @@ const GangaVideoSection = () => {
           </SlideUp>
         </div>
         <SlideUp delay={1} className="flex justify-center items-center w-full">
-          <button onClick={handleScheduleVisit} className="md:min-h-[4.75rem] min-h-[3.5rem] h-full -top-9 mx-auto relative bg-[#144D78] hover:bg-blue-800 transition text-white font-medium inline-flex items-center gap-2 overflow-hidden rounded-md">
+          <button
+            id="ganga-video-schedule-visit-button"
+            onClick={handleScheduleVisit}
+            className="md:min-h-[4.75rem] min-h-[3.5rem] h-full -top-9 mx-auto relative bg-[#144D78] hover:bg-blue-800 transition text-white font-medium inline-flex items-center gap-2 overflow-hidden rounded-md"
+          >
             <div className="px-6 py-3 mr-20">Schedule a Visit</div>
             <span className="px-6 flex items-center justify-center md:min-h-[4.75rem] min-h-[3.5rem] h-full ml-auto text-orange-500 bg-[#002F52] text-lg">
               ↗
@@ -199,6 +205,7 @@ const GangaVideoSection = () => {
           <div className="relative w-full max-w-4xl">
             {/* Close button */}
             <button
+              id="ganga-video-close-button"
               onClick={toggleModal}
               className="absolute -top-12 right-0 text-white hover:text-gray-300 focus:outline-none cursor-pointer"
             >

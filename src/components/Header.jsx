@@ -68,6 +68,7 @@ const Header = () => {
 
           <div className="flex items-center gap-6 md:justify-end">
             <button
+              id="header-schedule-visit-button"
               onClick={handleScheduleVisit}
               className="h-[40px] w-[100px] md:h-[48px] md:w-[123px] border-1 border-b-4 hover:bg-white transition-all duration-300 cursor-pointer group/header-btn relative rounded-md action-button flex items-center justify-center"
             >
@@ -106,6 +107,7 @@ const Header = () => {
             </Link>
           </div>
           <button
+            id="header-mobile-menu-close-button"
             onClick={toggleDrawer}
             className="text-gray-600"
             aria-label="Close menu"
@@ -184,6 +186,7 @@ const Header = () => {
             </li>
             <li>
               <button
+                id="header-mobile-schedule-visit-button"
                 onClick={handleScheduleVisit}
                 className="text-gray-800 hover:text-blue-500"
               >

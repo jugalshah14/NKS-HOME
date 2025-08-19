@@ -48,6 +48,7 @@ export default function ThankYouPage() {
 
             {/* Go Back to Home Button */}
             <Link 
+              id="thank-you-go-back-button"
               href="/"
               className="md:min-h-[4rem] min-h-[3.5rem] h-full bg-[#144D78] hover:bg-blue-800 transition rounded-sm text-white font-medium inline-flex items-center gap-2 overflow-hidden button-primary"
             >
