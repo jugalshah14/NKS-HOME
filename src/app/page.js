@@ -109,7 +109,10 @@ export default function Home () {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          formType: 'schedule-visit',
+          formData: data,
+        }),
       });
 
       const result = await response.json();

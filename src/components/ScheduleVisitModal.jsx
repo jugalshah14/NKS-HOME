@@ -63,7 +63,10 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
         headers: {
           'Content-Type': 'application/json',
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify({
+          formType: 'schedule-visit',
+          formData: data,
+        }),
         signal: controller.signal,
       });
 
@@ -242,22 +245,6 @@ const ScheduleVisitModal = ({ isOpen, onClose }) => {
                              </button>
              </form>
              
-                           {/* Message Display */}
-              {submitStatus === "success" && (
-                <div className="mt-4 p-3 bg-green-100 border border-green-400 text-green-700 rounded">
-                  Form submitted successfully! Redirecting...
-                </div>
-              )}
-              {submitStatus === "error" && (
-                <div className="mt-4 p-3 bg-red-100 border border-red-400 text-red-700 rounded">
-                  Something went wrong. Please try again later.
-                </div>
-              )}
-              {submitStatus === "timeout" && (
-                <div className="mt-4 p-3 bg-yellow-100 border border-yellow-400 text-yellow-700 rounded">
-                  Request is taking too long. Please try again.
-                </div>
-              )}
       </div>
     </div>
   );

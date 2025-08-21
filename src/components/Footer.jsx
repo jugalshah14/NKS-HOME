@@ -47,12 +47,8 @@ export default function Footer() {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          name: data.name,
-          email: data.email,
-          phone: data.phoneNumber,
-          bhk: '', // Footer form doesn't have BHK selection
-          budget: '', // Footer form doesn't have budget selection
-          message: data.requirements || '',
+          formType: 'contact',
+          formData: data,
         }),
       });
 
